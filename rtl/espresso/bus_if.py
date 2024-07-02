@@ -710,21 +710,6 @@ class BusIf(Module):
         next_state <<= self.fsm.next_state
 
         req_progress = req.ready & req.valid
-        req_wait_states_l = Select(req.addr[29:27], 14,12,8,6,4,2,1,0)
-        req_wait_states = Reg(req_wait_states_l, clock_en=req_progress)
-        wait_states = Wire(Unsigned(4))
-        wait_state_start = 0
-        wait_states <<= Reg(
-            Select(
-                wait_state_start,
-                Select(
-                    wait_states == 0,
-                    decrement(wait_states),
-                    0
-                ),
-                req_wait_states
-            )
-        )
 
         self.event_bus_idle <<= (state == BusIfStates.idle) & (next_state == BusIfStates.idle)
 
@@ -739,12 +724,15 @@ class BusIf(Module):
             req.addr[21:11],
             concat(req.addr[21], req.addr[19], req.addr[17], req.addr[16], req.addr[13:7])
         )
-        ras_page = Reg(req_ra, clock_en=req_progress)
-        break_burst = (req_ra != ras_page) & (state != BusIfStates.idle) & req_progress
+        req_ws_count = Select(req.addr[29:27], 14,12,8,6,4,2,1,0)
+        req_reg_ra = Reg(req_ra, clock_en=req_progress)
+        reg_req_ws_count = Reg(req_ws_count, clock_en=req_progress)
+        break_burst = ((req_ra != req_reg_ra) | (req_ws_count != reg_req_ws_count)) & (state != BusIfStates.idle) & req_progress
 
         # Address space slicing and dicing
         reg_req = Wire(req.get_data_member_type())
         reg_req <<= Reg(req.get_data_members(), clock_en=req_progress)
+
 
         reg_req_da  = reg_req.addr[25:22] # address presented on data pins during RAS cycle
         reg_req_mms = reg_req.addr[26]
@@ -786,6 +774,20 @@ class BusIf(Module):
         req_ras_b = (reg_req_mms & (reg_req_dbs != dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
         req_nren  = ~reg_req_mms
 
+        # Wait-state counter
+        wait_states = Wire(Unsigned(4))
+        wait_state_start = 0
+        wait_states <<= Reg(
+            Select(
+                wait_state_start,
+                Select(
+                    wait_states == 0,
+                    decrement(wait_states),
+                    0
+                ),
+                reg_req_ws_count
+            )
+        )
 
         self.fsm.add_transition(BusIfStates.idle,                         ~req.valid &  dram_wait_i2,                        BusIfStates.idle)
         self.fsm.add_transition(BusIfStates.idle,                          req.valid &  dram_wait_i2,                        BusIfStates.idle)
@@ -1071,6 +1073,7 @@ class BusIf(Module):
         self.dram.data_out       <<=  Select(Select(self.clk, data_out_sel_s, data_out_sel_f), reg_req_data_out[7:0], reg_req_data_out[15:8])
         self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
         #self.dram.n_wait
+        # These are DMA-related signals.
         #self.dram.n_dack
         #self.dram.tc
         #self.dram.bus_en

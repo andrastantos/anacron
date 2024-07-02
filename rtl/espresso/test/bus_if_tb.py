@@ -388,11 +388,14 @@ def sim():
                 yield from wait_clk()
             DRAM_SEL = 1 << 26
             NREN_SEL = 0
+            WAIT_0 = 7
+            WAIT_1 = 6
+            WAIT_2 = 5
             yield from read(DRAM_SEL | 0x00001234,0,3)
             yield from read(DRAM_SEL | 0x00000512,1,3)
             yield from read(DRAM_SEL | 0x00000624,3,3)
             yield from read(NREN_SEL | 0x00000703,0,1)
-            yield from read(NREN_SEL | 0x00000804,0,2, wait_states=5)
+            yield from read(NREN_SEL | 0x00000804,0,2, wait_states=WAIT_1)
             yield from wait_clk()
             yield from wait_clk()
             yield from wait_clk()

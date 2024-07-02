@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
-[*] Tue Jul  2 00:16:41 2024
+[*] Tue Jul  2 21:25:15 2024
 [*]
 [dumpfile] "/home/tantos/anachron/rtl/espresso/test/bus_if_tb.vcd"
-[dumpfile_mtime] "Tue Jul  2 00:16:01 2024"
-[dumpfile_size] 397712
+[dumpfile_mtime] "Tue Jul  2 21:24:23 2024"
+[dumpfile_size] 714737
 [savefile] "/home/tantos/anachron/rtl/espresso/test/bus_if_tb.gtkw"
 [timestart] 0
 [size] 1920 1097
 [pos] -1 -1
-*-7.201988 903 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-8.401988 590 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.dut.
 [sst_width] 282
-[signals_width] 286
+[signals_width] 317
 [sst_expanded] 1
-[sst_vpaned_height] 269
+[sst_vpaned_height] 565
 @28
 top.dut.clk
 top.dut.rst
@@ -42,32 +42,51 @@ top.dut.dram_tc
 top.dut.dram_bus_en
 @1000200
 -DRAM_IF
+@23
+top.dut.reg_req_ws_count[3:0]
+top.dut.req_ws_count[3:0]
 @22
-top.dut.reg_req_ra[10:0]
-top.dut.dram_data_in_i1f[7:0]
-top.dut.dram_data_in_i2f[7:0]
-top.dut.dram_data_in_i1s[7:0]
-top.dut.dram_data_in_i2s[7:0]
-top.dut.dram_data_in[7:0]
-top.dut.dram_data_in_i1f[7:0]
+top.dut.wait_states[3:0]
 @28
-top.dut.capture_data_f
-top.dut.capture_data_s
-@22
-top.dut.reg_req_ca[10:0]
-@28
-top.dut.req_progress
-top.dut.req_valid
-@22
-top.dut.req_ra[10:0]
-top.dut.ras_page[10:0]
-@28
-top.dut.break_burst
 top.dut.state
-top.dut.apply_back_pressure
 top.dut.req_valid
-@29
 top.dut.req_ready
+@800022
+top.dut.req_addr[30:0]
+@28
+(0)top.dut.req_addr[30:0]
+(1)top.dut.req_addr[30:0]
+(2)top.dut.req_addr[30:0]
+(3)top.dut.req_addr[30:0]
+(4)top.dut.req_addr[30:0]
+(5)top.dut.req_addr[30:0]
+(6)top.dut.req_addr[30:0]
+(7)top.dut.req_addr[30:0]
+(8)top.dut.req_addr[30:0]
+(9)top.dut.req_addr[30:0]
+(10)top.dut.req_addr[30:0]
+(11)top.dut.req_addr[30:0]
+(12)top.dut.req_addr[30:0]
+(13)top.dut.req_addr[30:0]
+(14)top.dut.req_addr[30:0]
+(15)top.dut.req_addr[30:0]
+(16)top.dut.req_addr[30:0]
+(17)top.dut.req_addr[30:0]
+(18)top.dut.req_addr[30:0]
+(19)top.dut.req_addr[30:0]
+(20)top.dut.req_addr[30:0]
+(21)top.dut.req_addr[30:0]
+(22)top.dut.req_addr[30:0]
+(23)top.dut.req_addr[30:0]
+(24)top.dut.req_addr[30:0]
+(25)top.dut.req_addr[30:0]
+(26)top.dut.req_addr[30:0]
+(27)top.dut.req_addr[30:0]
+(28)top.dut.req_addr[30:0]
+(29)top.dut.req_addr[30:0]
+(30)top.dut.req_addr[30:0]
+@1001200
+-group_end
 @800200
 -REQUEST
 @28

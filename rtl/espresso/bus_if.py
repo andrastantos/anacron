@@ -749,11 +749,15 @@ class BusIf(Module):
         reg_req_da  = reg_req.addr[25:22] # address presented on data pins during RAS cycle
         reg_req_mms = reg_req.addr[26]
         reg_req_ra  = Reg(req_ra, clock_en=req_progress)
+        # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
+        # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
+        # by a clock-cycle and ensure address-hold on broken bursts.
+        reg_req_ca_clk_en = (Reg(req_progress, clock_port=~self.clk) & (state != BusIfStates.cas1_ras_break)) | (state == BusIfStates.idle_break)
         reg_req_ca  = Reg(Select( # col address
             reg_req_mms,
             reg_req.addr[10:0],
             concat(reg_req.addr[20], reg_req.addr[18], reg_req.addr[16], reg_req.addr[14], reg_req.addr[6:0])
-        ), clock_port=~self.clk, clock_en=Reg(req_progress, clock_port=~self.clk))
+        ), clock_port=~self.clk, clock_en=reg_req_ca_clk_en)
         reg_req_dbs = Select(
             dram_bank_size,
             reg_req.addr[14],

@@ -717,26 +717,19 @@ class BusIf(Module):
         dram_wait_i1 = Reg(dram_wait, clock_port=~self.clk)
         dram_wait_i2 = Reg(dram_wait_i1)
 
-        req_mms = req.addr[26]
-
-        req_ra  = Select( # row address
-            req_mms | (req.request_type == RequestTypes.refresh),
-            req.addr[21:11],
-            concat(req.addr[21], req.addr[19], req.addr[17], req.addr[16], req.addr[13:7])
-        )
         req_ws_count = Select(req.addr[29:27], 14,12,8,6,4,2,1,0)
-        req_reg_ra = Reg(req_ra, clock_en=req_progress)
-        reg_req_ws_count = Reg(req_ws_count, clock_en=req_progress)
-        break_burst = ((req_ra != req_reg_ra) | (req_ws_count != reg_req_ws_count)) & (state != BusIfStates.idle) & req_progress
 
         # Address space slicing and dicing
         reg_req = Wire(req.get_data_member_type())
         reg_req <<= Reg(req.get_data_members(), clock_en=req_progress)
-
-
-        reg_req_da  = reg_req.addr[25:22] # address presented on data pins during RAS cycle
+        reg_req_ws_count = Reg(req_ws_count, clock_en=req_progress)
         reg_req_mms = reg_req.addr[26]
-        reg_req_ra  = Reg(req_ra, clock_en=req_progress)
+        reg_req_da  = reg_req.addr[25:22] # address presented on data pins during RAS cycle
+        reg_req_ra  = Select( # row address
+            reg_req_mms | (reg_req.request_type == RequestTypes.refresh),
+            reg_req.addr[21:11],
+            concat(reg_req.addr[21], reg_req.addr[19], reg_req.addr[17], reg_req.addr[16], reg_req.addr[13:7])
+        )
         # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
         # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
         # by a clock-cycle and ensure address-hold on broken bursts.
@@ -773,6 +766,13 @@ class BusIf(Module):
         req_ras_a = (reg_req_mms & (reg_req_dbs == dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
         req_ras_b = (reg_req_mms & (reg_req_dbs != dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
         req_nren  = ~reg_req_mms
+
+        # Bursts are broken whenever any of the top address bits change
+        # or if a different type of request is served.
+        break_burst = (
+            (req.addr[29:7] != reg_req.addr[29:7]) |
+            (req.request_type != reg_req.request_type)
+        ) & (state != BusIfStates.idle) & req_progress
 
         # Wait-state counter
         wait_states = Wire(Unsigned(4))

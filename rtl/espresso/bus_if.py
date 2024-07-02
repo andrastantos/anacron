@@ -759,6 +759,7 @@ class BusIf(Module):
             concat(reg_req.addr[20], reg_req.addr[18], reg_req.addr[16], reg_req.addr[14], reg_req.addr[6:0])
         ), clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
         reg_req_read_not_write2 = Reg(reg_req.read_not_write, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
+        reg_req_data_out = Reg(reg_req.data, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
         reg_req_dbs = Select(
             dram_bank_size,
             reg_req.addr[14],
@@ -1027,6 +1028,37 @@ class BusIf(Module):
             ras_cas1             = 1,
             cas1_cas1            = 1,
         )
+        # 0 selects low-byte, 1 selects high-byte
+        data_out_sel_f = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 0,
+            cas0_cas1            = 0,
+            cas1_cas0            = 1,
+            ras_wait             = 0,
+            ras_ras              = 0,
+            cas0_ras             = 0,
+            cas1_ras             = 1,
+            cas1_ras_break       = 1,
+            cas0_cas0            = 0,
+            ras_cas1             = 0,
+            cas1_cas1            = 1,
+        )
+        data_out_sel_s = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 0,
+            cas0_cas1            = 1,
+            cas1_cas0            = 0,
+            ras_wait             = 0,
+            ras_ras              = 0,
+            cas0_ras             = 0,
+            cas1_ras             = 1,
+            cas1_ras_break       = 1,
+            cas0_cas0            = 0,
+            ras_cas1             = 1,
+            cas1_cas1            = 1,
+        )
 
         ras = Select(self.clk, ras_s, ras_f)
         self.dram.n_ras_a        <<= ~Select(req_ras_a, 0, ras)
@@ -1036,9 +1068,8 @@ class BusIf(Module):
         self.dram.n_cas_1        <<= ~Select(self.clk, cas1_s, cas1_f)
         self.dram.addr           <<=  Select(Select(self.clk, addr_col_sel_s, addr_col_sel_f), reg_req_ra, reg_req_ca)
         self.dram.n_we           <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
-        #self.dram.data_in
-        #self.dram.data_out
-        #self.dram.data_out_en
+        self.dram.data_out       <<=  Select(Select(self.clk, data_out_sel_s, data_out_sel_f), reg_req_data_out[7:0], reg_req_data_out[15:8])
+        self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
         #self.dram.n_wait
         #self.dram.n_dack
         #self.dram.tc

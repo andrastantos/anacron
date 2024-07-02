@@ -730,17 +730,6 @@ class BusIf(Module):
             reg_req.addr[21:11],
             concat(reg_req.addr[21], reg_req.addr[19], reg_req.addr[17], reg_req.addr[16], reg_req.addr[13:7])
         )
-        # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
-        # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
-        # by a clock-cycle and ensure address-hold on broken bursts.
-        hold_sensitive_reg_clk_en = (Reg(req_progress, clock_port=~self.clk) & (state != BusIfStates.cas1_ras_break)) | (state == BusIfStates.idle_break)
-        reg_req_ca  = Reg(Select( # col address
-            reg_req_mms,
-            reg_req.addr[10:0],
-            concat(reg_req.addr[20], reg_req.addr[18], reg_req.addr[16], reg_req.addr[14], reg_req.addr[6:0])
-        ), clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
-        reg_req_read_not_write2 = Reg(reg_req.read_not_write, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
-        reg_req_data_out = Reg(reg_req.data, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
         reg_req_dbs = Select(
             dram_bank_size,
             reg_req.addr[14],
@@ -752,20 +741,35 @@ class BusIf(Module):
             reg_req.addr[22],
             reg_req.addr[22]
         )
-        req_space = Wire(EnumNet(MemSpaces))
-        req_space <<= Select(
+        reg_req_space = Wire(EnumNet(MemSpaces))
+        reg_req_space <<= Select(
             reg_req_mms,
             MemSpaces.nren,
             Select(reg_req_dbs, MemSpaces.dram_0, MemSpaces.dram_1),
         )
+        reg_req_ras_a = (reg_req_mms & (reg_req_dbs == dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
+        reg_req_ras_b = (reg_req_mms & (reg_req_dbs != dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
+        reg_req_nren  = ~reg_req_mms
+
+        # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
+        # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
+        # by a clock-cycle and ensure address-hold on broken bursts.
+        hold_sensitive_reg_clk_en = (Reg(req_progress, clock_port=~self.clk) & (state != BusIfStates.cas1_ras_break)) | (state == BusIfStates.idle_break)
+        reg_req_ca  = Reg(Select( # col address
+            reg_req_mms,
+            reg_req.addr[10:0],
+            concat(reg_req.addr[20], reg_req.addr[18], reg_req.addr[16], reg_req.addr[14], reg_req.addr[6:0])
+        ), clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
+        reg_req_read_not_write2 = Reg(reg_req.read_not_write, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
+        reg_req_data_out = Reg(reg_req.data, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
+
+
+
         ras_wait = SelectOne(
-            req_space == MemSpaces.dram_0, dram_0_wait,
-            req_space == MemSpaces.dram_1, dram_1_wait,
-            req_space == MemSpaces.nren,   nren_wait
+            reg_req_space == MemSpaces.dram_0, dram_0_wait,
+            reg_req_space == MemSpaces.dram_1, dram_1_wait,
+            reg_req_space == MemSpaces.nren,   nren_wait
         )
-        req_ras_a = (reg_req_mms & (reg_req_dbs == dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
-        req_ras_b = (reg_req_mms & (reg_req_dbs != dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
-        req_nren  = ~reg_req_mms
 
         # Bursts are broken whenever any of the top address bits change
         # or if a different type of request is served.
@@ -802,6 +806,19 @@ class BusIf(Module):
         self.fsm.add_transition(BusIfStates.cas1_cas0,                    ~req.valid,                                        BusIfStates.cas1_ras)
         self.fsm.add_transition(BusIfStates.cas1_ras,                      1,                                                BusIfStates.idle)
         self.fsm.add_transition(BusIfStates.cas1_ras_break,                1,                                                BusIfStates.idle_break)
+
+        # The address phase goes from idle to the first CAS getting asserted.
+        # During this time, data pins are used to expose some extra address bits.
+        address_phase = Wire(logic)
+        address_phase <<= Reg(Select(
+            (state == BusIfStates.idle) | (state == BusIfStates.idle_break),
+            Select(
+                (state == BusIfStates.ras_cas0) | (state == BusIfStates.ras_cas1),
+                address_phase,
+                0
+            ),
+            1
+        ))
 
         def decode_state(state, **kwargs):
             # This is a neat trick, I think: argument names are matched to enum values
@@ -1030,20 +1047,22 @@ class BusIf(Module):
             ras_cas1             = 1,
             cas1_cas1            = 1,
         )
+
+        address_phase_data_out_sel = Select(address_phase, 0, 2)
         # 0 selects low-byte, 1 selects high-byte
         data_out_sel_f = decode_state(state,
             idle                 = 0,
             idle_break           = 0,
-            ras_cas0             = 0,
+            ras_cas0             = address_phase_data_out_sel,
             cas0_cas1            = 0,
             cas1_cas0            = 1,
-            ras_wait             = 0,
-            ras_ras              = 0,
+            ras_wait             = address_phase_data_out_sel,
+            ras_ras              = address_phase_data_out_sel,
             cas0_ras             = 0,
             cas1_ras             = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 0,
-            ras_cas1             = 0,
+            ras_cas1             = address_phase_data_out_sel,
             cas1_cas1            = 1,
         )
         data_out_sel_s = decode_state(state,
@@ -1052,8 +1071,8 @@ class BusIf(Module):
             ras_cas0             = 0,
             cas0_cas1            = 1,
             cas1_cas0            = 0,
-            ras_wait             = 0,
-            ras_ras              = 0,
+            ras_wait             = address_phase_data_out_sel,
+            ras_ras              = address_phase_data_out_sel,
             cas0_ras             = 0,
             cas1_ras             = 1,
             cas1_ras_break       = 1,
@@ -1063,15 +1082,15 @@ class BusIf(Module):
         )
 
         ras = Select(self.clk, ras_s, ras_f)
-        self.dram.n_ras_a        <<= ~Select(req_ras_a, 0, ras)
-        self.dram.n_ras_b        <<= ~Select(req_ras_b, 0, ras)
-        self.dram.n_nren         <<= ~Select(req_nren, 0, ras)
+        self.dram.n_ras_a        <<= ~Select(reg_req_ras_a, 0, ras)
+        self.dram.n_ras_b        <<= ~Select(reg_req_ras_b, 0, ras)
+        self.dram.n_nren         <<= ~Select(reg_req_nren, 0, ras)
         self.dram.n_cas_0        <<= ~Select(self.clk, cas0_s, cas0_f)
         self.dram.n_cas_1        <<= ~Select(self.clk, cas1_s, cas1_f)
         self.dram.addr           <<=  Select(Select(self.clk, addr_col_sel_s, addr_col_sel_f), reg_req_ra, reg_req_ca)
         self.dram.n_we           <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
-        self.dram.data_out       <<=  Select(Select(self.clk, data_out_sel_s, data_out_sel_f), reg_req_data_out[7:0], reg_req_data_out[15:8])
-        self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
+        self.dram.data_out       <<=  Select(Select(self.clk, data_out_sel_s, data_out_sel_f), reg_req_data_out[7:0], reg_req_data_out[15:8], reg_req_da)
+        self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 0, ~reg_req_read_not_write2) | (self.clk & we_enable_s & address_phase)
         #self.dram.n_wait
         # These are DMA-related signals.
         #self.dram.n_dack

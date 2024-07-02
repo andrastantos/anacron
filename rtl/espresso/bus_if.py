@@ -687,13 +687,14 @@ class BusIf(Module):
         class BusIfStates(Enum):
             idle                 = 0 # idle or precharge
             idle_break           = 1 # going through precharge due to a previous page break
-            ras_cas0             = 3
-            cas0_cas1            = 4
-            cas1_cas0            = 5
-            ras_wait             = 6
-            ras_ras              = 7
-            cas0_ras             = 8
-            cas1_ras             = 9
+            ras_cas0             = 2
+            cas0_cas1            = 3
+            cas1_cas0            = 4
+            ras_wait             = 5
+            ras_ras              = 6
+            cas0_ras             = 7
+            cas1_ras             = 8
+            cas1_ras_final       = 9
             cas1_ras_break       = 10
             cas0_cas0            = 11
             ras_cas1             = 12
@@ -750,6 +751,9 @@ class BusIf(Module):
         reg_req_ras_a = (reg_req_mms & (reg_req_dbs == dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
         reg_req_ras_b = (reg_req_mms & (reg_req_dbs != dram_bank_swap)) | (reg_req.request_type == RequestTypes.refresh)
         reg_req_nren  = ~reg_req_mms
+        reg_reg_req_ras_a = Reg(reg_req_ras_a, clock_en=req_progress)
+        reg_reg_req_ras_b = Reg(reg_req_ras_b, clock_en=req_progress)
+        reg_reg_req_nren  = Reg(reg_req_nren, clock_en=req_progress)
 
         # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
         # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
@@ -793,19 +797,26 @@ class BusIf(Module):
             )
         )
 
-        self.fsm.add_transition(BusIfStates.idle,                         ~req.valid &  dram_wait_i2,                        BusIfStates.idle)
-        self.fsm.add_transition(BusIfStates.idle,                          req.valid &  dram_wait_i2,                        BusIfStates.idle)
-        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i2,                        BusIfStates.ras_cas0)
-        self.fsm.add_transition(BusIfStates.idle_break,                                 dram_wait_i2,                        BusIfStates.idle_break)
-        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i2,                        BusIfStates.ras_cas0)
-        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 & ~break_burst,         BusIfStates.cas1_cas0)
-        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 &  break_burst,         BusIfStates.cas1_ras_break)
-        self.fsm.add_transition(BusIfStates.ras_cas0,                     ~req.valid,                                        BusIfStates.cas1_ras)
-        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 & ~break_burst,         BusIfStates.cas1_cas0)
-        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 &  break_burst,         BusIfStates.cas1_ras_break)
-        self.fsm.add_transition(BusIfStates.cas1_cas0,                    ~req.valid,                                        BusIfStates.cas1_ras)
-        self.fsm.add_transition(BusIfStates.cas1_ras,                      1,                                                BusIfStates.idle)
-        self.fsm.add_transition(BusIfStates.cas1_ras_break,                1,                                                BusIfStates.idle_break)
+        self.fsm.add_transition(BusIfStates.idle,                         ~req.valid &  dram_wait_i2,                            BusIfStates.idle)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid &  dram_wait_i2,                            BusIfStates.idle)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i2 & (req_ws_count == 0),      BusIfStates.ras_cas0)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i2 & (req_ws_count == 1),      BusIfStates.ras_ras)
+        self.fsm.add_transition(BusIfStates.idle_break,                                 dram_wait_i2,                            BusIfStates.idle_break)
+        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i2 & (req_ws_count == 0),      BusIfStates.ras_cas0)
+        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i2 & (req_ws_count == 1),      BusIfStates.ras_ras)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 & ~break_burst,             BusIfStates.cas1_cas0)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 &  break_burst,             BusIfStates.cas1_ras_break)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                     ~req.valid,                                            BusIfStates.cas1_ras_final)
+        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 & ~break_burst,             BusIfStates.cas1_cas0)
+        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 &  break_burst,             BusIfStates.cas1_ras_break)
+        self.fsm.add_transition(BusIfStates.cas1_cas0,                    ~req.valid,                                            BusIfStates.cas1_ras_final)
+        self.fsm.add_transition(BusIfStates.cas1_ras_final,                1,                                                    BusIfStates.idle)
+        self.fsm.add_transition(BusIfStates.cas1_ras_break,                1,                                                    BusIfStates.idle_break)
+        # Cycles for 1WS
+        self.fsm.add_transition(BusIfStates.ras_ras,                                   ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
+        self.fsm.add_transition(BusIfStates.cas0_ras,                     ~req.valid & ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras_final)
+        self.fsm.add_transition(BusIfStates.cas0_ras,                      req.valid & ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras)
+        self.fsm.add_transition(BusIfStates.cas1_ras,                                  ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
 
         # The address phase goes from idle to the first CAS getting asserted.
         # During this time, data pins are used to expose some extra address bits.
@@ -813,7 +824,11 @@ class BusIf(Module):
         address_phase <<= Reg(Select(
             (state == BusIfStates.idle) | (state == BusIfStates.idle_break),
             Select(
-                (state == BusIfStates.ras_cas0) | (state == BusIfStates.ras_cas1),
+                (state == BusIfStates.ras_cas0)  | (state == BusIfStates.ras_cas1) |
+                (state == BusIfStates.cas0_ras)  | (state == BusIfStates.cas1_ras) |
+                (state == BusIfStates.cas0_cas0) | (state == BusIfStates.cas1_cas1) |
+                (state == BusIfStates.cas0_cas1) | (state == BusIfStates.cas1_cas0) |
+                ((state == BusIfStates.ras_ras) & (next_state != BusIfStates.ras_ras)),
                 address_phase,
                 0
             ),
@@ -847,6 +862,7 @@ class BusIf(Module):
             ras_ras              = 1,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 1,
@@ -862,6 +878,7 @@ class BusIf(Module):
             ras_ras              = 1,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 1,
@@ -877,6 +894,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 1,
             cas1_ras             = 0,
+            cas1_ras_final       = 0,
             cas1_ras_break       = 0,
             cas0_cas0            = 1,
             ras_cas1             = 0,
@@ -892,6 +910,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 0,
             cas1_ras             = 0,
+            cas1_ras_final       = 0,
             cas1_ras_break       = 0,
             cas0_cas0            = 1,
             ras_cas1             = 0,
@@ -907,6 +926,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 0,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 0,
             ras_cas1             = 0,
@@ -922,6 +942,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 0,
             cas1_ras             = 0,
+            cas1_ras_final       = 0,
             cas1_ras_break       = 0,
             cas0_cas0            = 0,
             ras_cas1             = 1,
@@ -937,6 +958,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 0,
@@ -952,6 +974,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 1,
@@ -964,9 +987,10 @@ class BusIf(Module):
             cas0_cas1            = 0,
             cas1_cas0            = 0,
             ras_wait             = 1,
-            ras_ras              = 0,
-            cas0_ras             = 1,
+            ras_ras              = 1,
+            cas0_ras             = 0,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 0,
@@ -983,6 +1007,7 @@ class BusIf(Module):
             ras_ras              = 0,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 0,
             ras_cas1             = 0,
@@ -999,6 +1024,7 @@ class BusIf(Module):
                     (next_state == BusIfStates.ras_cas0) |
                     (next_state == BusIfStates.ras_cas1) |
                     (next_state == BusIfStates.cas1_ras) |
+                    (next_state == BusIfStates.cas1_ras_final) |
                     (next_state == BusIfStates.cas1_ras_break) |
                     (next_state == BusIfStates.cas1_cas0) |
                     (next_state == BusIfStates.cas1_cas1)
@@ -1027,6 +1053,7 @@ class BusIf(Module):
             ras_ras              = 1,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 0,
@@ -1042,6 +1069,7 @@ class BusIf(Module):
             ras_ras              = 1,
             cas0_ras             = 1,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 1,
             ras_cas1             = 1,
@@ -1060,6 +1088,7 @@ class BusIf(Module):
             ras_ras              = address_phase_data_out_sel,
             cas0_ras             = 0,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 0,
             ras_cas1             = address_phase_data_out_sel,
@@ -1075,22 +1104,62 @@ class BusIf(Module):
             ras_ras              = address_phase_data_out_sel,
             cas0_ras             = 0,
             cas1_ras             = 1,
+            cas1_ras_final       = 1,
             cas1_ras_break       = 1,
             cas0_cas0            = 0,
             ras_cas1             = 1,
             cas1_cas1            = 1,
         )
+        addr_phase_data_en_f = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 1,
+            cas0_cas1            = 0,
+            cas1_cas0            = 0,
+            ras_wait             = 1,
+            ras_ras              = 1,
+            cas0_ras             = 0,
+            cas1_ras             = 0,
+            cas1_ras_final       = 0,
+            cas1_ras_break       = 0,
+            cas0_cas0            = 0,
+            ras_cas1             = 1,
+            cas1_cas1            = 0,
+        )
+        addr_phase_data_en_s = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 0,
+            cas0_cas1            = 0,
+            cas1_cas0            = 0,
+            ras_wait             = 1,
+            ras_ras              = 1,
+            cas0_ras             = 0,
+            cas1_ras             = 0,
+            cas1_ras_final       = 0,
+            cas1_ras_break       = 0,
+            cas0_cas0            = 0,
+            ras_cas1             = 0,
+            cas1_cas1            = 0,
+        )
 
+        # If we break a burst due to a page change, in the last cycle (cas1_ras_break), we already have
+        # the next bursts 'stuff' in reg_req_XXX. Thus, we will output the wrong things here.
+        # Unfortunately, we've blown away our reg_req already in the previous cycle, so we don't even have the
+        # old state available anymore -> we need another delayed version and use that instead.
+        # This applies to 'reg_req_ras_a', 'reg_req_ras_b' and 'reg_req_nren'; the rest
+        # are either not driven in this cycle or have the correct state already
+        # due to the 'hold-time-after-last-CAS' requirement.
         ras = Select(self.clk, ras_s, ras_f)
-        self.dram.n_ras_a        <<= ~Select(reg_req_ras_a, 0, ras)
-        self.dram.n_ras_b        <<= ~Select(reg_req_ras_b, 0, ras)
-        self.dram.n_nren         <<= ~Select(reg_req_nren, 0, ras)
+        self.dram.n_ras_a        <<= ~Select(Select(state == BusIfStates.cas1_ras_break, reg_req_ras_a, reg_reg_req_ras_a), 0, ras)
+        self.dram.n_ras_b        <<= ~Select(Select(state == BusIfStates.cas1_ras_break, reg_req_ras_b, reg_reg_req_ras_b), 0, ras)
+        self.dram.n_nren         <<= ~Select(Select(state == BusIfStates.cas1_ras_break, reg_req_nren, reg_reg_req_nren), 0, ras)
         self.dram.n_cas_0        <<= ~Select(self.clk, cas0_s, cas0_f)
         self.dram.n_cas_1        <<= ~Select(self.clk, cas1_s, cas1_f)
         self.dram.addr           <<=  Select(Select(self.clk, addr_col_sel_s, addr_col_sel_f), reg_req_ra, reg_req_ca)
         self.dram.n_we           <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
         self.dram.data_out       <<=  Select(Select(self.clk, data_out_sel_s, data_out_sel_f), reg_req_data_out[7:0], reg_req_data_out[15:8], reg_req_da)
-        self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 0, ~reg_req_read_not_write2) | (self.clk & we_enable_s & address_phase)
+        self.dram.data_out_en    <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 0, ~reg_req_read_not_write2) | (Select(self.clk, addr_phase_data_en_s, addr_phase_data_en_f) & address_phase)
         #self.dram.n_wait
         # These are DMA-related signals.
         #self.dram.n_dack

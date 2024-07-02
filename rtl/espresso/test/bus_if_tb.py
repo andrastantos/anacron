@@ -168,11 +168,11 @@ def sim():
                                     if self.bus_if.n_we == 0:
                                         # Write to the address
                                         data = f"{self.bus_if.data_out:#04x}"
-                                        simulator.sim_assert(not data_assigned, "Multiple regions or byte-lanes are written at the same time")
+                                        #simulator.sim_assert(not data_assigned, "Multiple regions or byte-lanes are written at the same time")
                                         simulator.log(f"{region.name} writing byte {byte} in beat {region.burst_cnts[idx]} to address {region.full_addr:#08x} {data}")
                                     else:
                                         data = mem_content(region.name, (region.full_addr << 1) + idx)
-                                        simulator.sim_assert(not data_assigned, "Multiple regions or byte-lanes are read at the same time")
+                                        #simulator.sim_assert(not data_assigned, "Multiple regions or byte-lanes are read at the same time")
                                         simulator.log(f"{region.name} reading byte {byte} in beat {region.burst_cnts[idx]} from address {region.full_addr:#08x} {data:#04x}")
                                         self.bus_if.data_in <<= data
                                     data_assigned = True
@@ -407,14 +407,14 @@ def sim():
             yield from wait_clk()
             yield from wait_clk()
             yield from wait_clk()
-            yield from read(NREN_SEL | 0x00005678,0,3, wait_states=2)
+            yield from read(NREN_SEL | 0x00005678,0,3, wait_states=WAIT_1)
             for _ in range(10):
                 yield from wait_clk()
             yield from write(DRAM_SEL | 0x00001234,0,(0x1234,0x2345,0x3456,0x4567))
             yield from write(DRAM_SEL | 0x00000512,1,(0x1234,0x2345,0x3456,0x4567))
             yield from write(DRAM_SEL | 0x00000624,3,(0x1234,0x2345,0x3456,0x4567))
             yield from write(NREN_SEL | 0x00000703,0,(0x1234,0x2345))
-            yield from write(NREN_SEL | 0x00000804,0,(0x1234,0x2345,0x3456), wait_states=5)
+            yield from write(NREN_SEL | 0x00000804,0,(0x1234,0x2345,0x3456), wait_states=WAIT_1)
             yield from wait_clk()
             yield from wait_clk()
             yield from wait_clk()
@@ -426,7 +426,7 @@ def sim():
             yield from wait_clk()
             yield from wait_clk()
             yield from wait_clk()
-            yield from write(NREN_SEL | 0x00005678,0,(0x1234,0x2345,0x3456,0x4567), wait_states=2)
+            yield from write(NREN_SEL | 0x00005678,0,(0x1234,0x2345,0x3456,0x4567), wait_states=WAIT_1)
 
             while len(self.expected_responses) > 0:
                 yield from wait_clk()

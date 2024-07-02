@@ -366,7 +366,7 @@ def sim():
                     yield from wait_clk()
 
             def write(addr, byte_en, data, wait_states=7, request_type=RequestTypes.pipeline):
-                start_write(addr, len(data), byte_en, data[0], wait_states, request_type)
+                start_write(addr, len(data)-1, byte_en, data[0], wait_states, request_type)
                 yield from wait_for_advance()
                 while self.burst_cnt > 0:
                     cont_burst(data[self.burst_beat+1])
@@ -400,9 +400,30 @@ def sim():
             yield from read(NREN_SEL | 0x00000103,1,0)
             yield from read(NREN_SEL | 0x00001204,2,0)
             yield from read(NREN_SEL | 0x00002304,3,0)
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from read(NREN_SEL | 0x00005678,0,3, wait_states=2)
             for _ in range(10):
                 yield from wait_clk()
-            yield from read(NREN_SEL | 0x00005678,0,3, wait_states=2)
+            yield from write(DRAM_SEL | 0x00001234,0,(0x1234,0x2345,0x3456,0x4567))
+            yield from write(DRAM_SEL | 0x00000512,1,(0x1234,0x2345,0x3456,0x4567))
+            yield from write(DRAM_SEL | 0x00000624,3,(0x1234,0x2345,0x3456,0x4567))
+            yield from write(NREN_SEL | 0x00000703,0,(0x1234,0x2345))
+            yield from write(NREN_SEL | 0x00000804,0,(0x1234,0x2345,0x3456), wait_states=5)
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from write(NREN_SEL | 0x00000103,1,(0xaabb,))
+            yield from write(NREN_SEL | 0x00001204,2,(0xaabb,))
+            yield from write(NREN_SEL | 0x00002304,3,(0xaabb,))
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from wait_clk()
+            yield from write(NREN_SEL | 0x00005678,0,(0x1234,0x2345,0x3456,0x4567), wait_states=2)
 
             while len(self.expected_responses) > 0:
                 yield from wait_clk()

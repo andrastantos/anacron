@@ -752,12 +752,13 @@ class BusIf(Module):
         # Normally we register column address whenever it comes in. However, if we're breaking the burst, we're guaranteed not
         # to lose the register content (re_req) on the next cycle as we apply back-pressure. We can delay the update
         # by a clock-cycle and ensure address-hold on broken bursts.
-        reg_req_ca_clk_en = (Reg(req_progress, clock_port=~self.clk) & (state != BusIfStates.cas1_ras_break)) | (state == BusIfStates.idle_break)
+        hold_sensitive_reg_clk_en = (Reg(req_progress, clock_port=~self.clk) & (state != BusIfStates.cas1_ras_break)) | (state == BusIfStates.idle_break)
         reg_req_ca  = Reg(Select( # col address
             reg_req_mms,
             reg_req.addr[10:0],
             concat(reg_req.addr[20], reg_req.addr[18], reg_req.addr[16], reg_req.addr[14], reg_req.addr[6:0])
-        ), clock_port=~self.clk, clock_en=reg_req_ca_clk_en)
+        ), clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
+        reg_req_read_not_write2 = Reg(reg_req.read_not_write, clock_port=~self.clk, clock_en=hold_sensitive_reg_clk_en)
         reg_req_dbs = Select(
             dram_bank_size,
             reg_req.addr[14],
@@ -996,18 +997,48 @@ class BusIf(Module):
                 )
             )
         )
+        we_enable_f = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 0,
+            cas0_cas1            = 1,
+            cas1_cas0            = 1,
+            ras_wait             = 0,
+            ras_ras              = 1,
+            cas0_ras             = 1,
+            cas1_ras             = 1,
+            cas1_ras_break       = 1,
+            cas0_cas0            = 1,
+            ras_cas1             = 0,
+            cas1_cas1            = 1,
+        )
+        we_enable_s = decode_state(state,
+            idle                 = 0,
+            idle_break           = 0,
+            ras_cas0             = 1,
+            cas0_cas1            = 1,
+            cas1_cas0            = 1,
+            ras_wait             = 1,
+            ras_ras              = 1,
+            cas0_ras             = 1,
+            cas1_ras             = 1,
+            cas1_ras_break       = 1,
+            cas0_cas0            = 1,
+            ras_cas1             = 1,
+            cas1_cas1            = 1,
+        )
 
         ras = Select(self.clk, ras_s, ras_f)
         self.dram.n_ras_a        <<= ~Select(req_ras_a, 0, ras)
         self.dram.n_ras_b        <<= ~Select(req_ras_b, 0, ras)
+        self.dram.n_nren         <<= ~Select(req_nren, 0, ras)
         self.dram.n_cas_0        <<= ~Select(self.clk, cas0_s, cas0_f)
         self.dram.n_cas_1        <<= ~Select(self.clk, cas1_s, cas1_f)
         self.dram.addr           <<=  Select(Select(self.clk, addr_col_sel_s, addr_col_sel_f), reg_req_ra, reg_req_ca)
-        self.dram.n_we           <<=  Select(ras, 1, reg_req.read_not_write)
+        self.dram.n_we           <<=  Select(Select(self.clk, we_enable_s, we_enable_f), 1, reg_req_read_not_write2)
         #self.dram.data_in
         #self.dram.data_out
         #self.dram.data_out_en
-        self.dram.n_nren         <<= ~Select(req_nren, 0, ras)
         #self.dram.n_wait
         #self.dram.n_dack
         #self.dram.tc

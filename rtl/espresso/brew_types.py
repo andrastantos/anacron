@@ -110,6 +110,7 @@ class BusIfResponseIf(Interface):
 class ExternalBusIf(Interface):
     n_ras_a       = logic
     n_ras_b       = logic
+    n_nren        = logic
     n_cas_0       = logic
     n_cas_1       = logic
     addr          = Unsigned(11)
@@ -117,7 +118,6 @@ class ExternalBusIf(Interface):
     data_in       = Reverse(BrewByte)
     data_out      = BrewByte
     data_out_en   = logic
-    n_nren        = logic
     n_wait        = Reverse(logic)
     n_dack        = Unsigned(4)
     tc            = logic

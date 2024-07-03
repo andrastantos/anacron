@@ -65,7 +65,12 @@ The input signals are fed through re-synchronizer stages as follows:
 2. DRAM_DATA on reads is registered on both edges, then re-registered on rising
    edge
 
-
+NOTE on n_wait: most contemporary processors (8088, Z80, 6502 have setup/hold
+                time requirements for wait signals). The 68k is strange, it does
+                have setup time requirements, yet it calls the corresponding
+                signal (nDTACK) asynchronous. Either way, the lack of CDC would
+                explain their ability to react to this signal within a clock
+                cycle.
 
     4-beat burst with no wait
     ================================================
@@ -714,8 +719,8 @@ class BusIf(Module):
 
         self.event_bus_idle <<= (state == BusIfStates.idle) & (next_state == BusIfStates.idle)
 
-        dram_wait = ~self.dram.n_wait
-        dram_wait_i1 = Reg(dram_wait, clock_port=~self.clk)
+        dram_wait_i0 = ~self.dram.n_wait
+        dram_wait_i1 = Reg(dram_wait_i0, clock_port=~self.clk)
         dram_wait_i2 = Reg(dram_wait_i1)
 
         req_ws_count = Select(req.addr[29:27], 14,12,8,6,4,2,1,0)
@@ -797,26 +802,29 @@ class BusIf(Module):
             )
         )
 
-        self.fsm.add_transition(BusIfStates.idle,                         ~req.valid &  dram_wait_i2,                            BusIfStates.idle)
-        self.fsm.add_transition(BusIfStates.idle,                          req.valid &  dram_wait_i2,                            BusIfStates.idle)
-        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i2 & (req_ws_count == 0),      BusIfStates.ras_cas0)
-        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i2 & (req_ws_count == 1),      BusIfStates.ras_ras)
-        self.fsm.add_transition(BusIfStates.idle_break,                                 dram_wait_i2,                            BusIfStates.idle_break)
-        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i2 & (req_ws_count == 0),      BusIfStates.ras_cas0)
-        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i2 & (req_ws_count == 1),      BusIfStates.ras_ras)
-        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 & ~break_burst,             BusIfStates.cas1_cas0)
-        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i2 &  break_burst,             BusIfStates.cas1_ras_break)
+        self.fsm.add_transition(BusIfStates.idle,                         ~req.valid &  dram_wait_i1,                            BusIfStates.idle)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid &  dram_wait_i1,                            BusIfStates.idle)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i1 & (req_ws_count == 0),      BusIfStates.ras_cas0)
+        self.fsm.add_transition(BusIfStates.idle,                          req.valid & ~dram_wait_i1 & (req_ws_count == 1),      BusIfStates.ras_ras)
+        self.fsm.add_transition(BusIfStates.idle_break,                                 dram_wait_i1,                            BusIfStates.idle_break)
+        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i1 & (req_ws_count == 0),      BusIfStates.ras_cas0)
+        self.fsm.add_transition(BusIfStates.idle_break,                                ~dram_wait_i1 & (req_ws_count == 1),      BusIfStates.ras_ras)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid &  dram_wait_i1,                            BusIfStates.ras_wait)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i1 & ~break_burst,             BusIfStates.cas1_cas0)
+        self.fsm.add_transition(BusIfStates.ras_cas0,                      req.valid & ~dram_wait_i1 &  break_burst,             BusIfStates.cas1_ras_break)
         self.fsm.add_transition(BusIfStates.ras_cas0,                     ~req.valid,                                            BusIfStates.cas1_ras_final)
-        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 & ~break_burst,             BusIfStates.cas1_cas0)
-        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i2 &  break_burst,             BusIfStates.cas1_ras_break)
+        self.fsm.add_transition(BusIfStates.ras_wait,                      req.valid &  dram_wait_i1,                            BusIfStates.ras_wait)
+        self.fsm.add_transition(BusIfStates.ras_wait,                      req.valid & ~dram_wait_i1,                            BusIfStates.ras_cas0)
+        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i1 & ~break_burst,             BusIfStates.cas1_cas0)
+        self.fsm.add_transition(BusIfStates.cas1_cas0,                     req.valid & ~dram_wait_i1 &  break_burst,             BusIfStates.cas1_ras_break)
         self.fsm.add_transition(BusIfStates.cas1_cas0,                    ~req.valid,                                            BusIfStates.cas1_ras_final)
         self.fsm.add_transition(BusIfStates.cas1_ras_final,                1,                                                    BusIfStates.idle)
         self.fsm.add_transition(BusIfStates.cas1_ras_break,                1,                                                    BusIfStates.idle_break)
         # Cycles for 1WS
-        self.fsm.add_transition(BusIfStates.ras_ras,                                   ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
-        self.fsm.add_transition(BusIfStates.cas0_ras,                     ~req.valid & ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras_final)
-        self.fsm.add_transition(BusIfStates.cas0_ras,                      req.valid & ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras)
-        self.fsm.add_transition(BusIfStates.cas1_ras,                                  ~dram_wait_i2 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
+        self.fsm.add_transition(BusIfStates.ras_ras,                                   ~dram_wait_i1 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
+        self.fsm.add_transition(BusIfStates.cas0_ras,                     ~req.valid & ~dram_wait_i1 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras_final)
+        self.fsm.add_transition(BusIfStates.cas0_ras,                      req.valid & ~dram_wait_i1 & (reg_req_ws_count == 1),  BusIfStates.cas1_ras)
+        self.fsm.add_transition(BusIfStates.cas1_ras,                                  ~dram_wait_i1 & (reg_req_ws_count == 1),  BusIfStates.cas0_ras) # We area applying back-pressure in this state
 
         # The address phase goes from idle to the first CAS getting asserted.
         # During this time, data pins are used to expose some extra address bits.
@@ -824,7 +832,7 @@ class BusIf(Module):
         address_phase <<= Reg(Select(
             (state == BusIfStates.idle) | (state == BusIfStates.idle_break),
             Select(
-                (state == BusIfStates.ras_cas0)  | (state == BusIfStates.ras_cas1) |
+                (((state == BusIfStates.ras_cas0)  | (state == BusIfStates.ras_cas1)) & ~dram_wait_i0) |
                 (state == BusIfStates.cas0_ras)  | (state == BusIfStates.cas1_ras) |
                 (state == BusIfStates.cas0_cas0) | (state == BusIfStates.cas1_cas1) |
                 (state == BusIfStates.cas0_cas1) | (state == BusIfStates.cas1_cas0) |
@@ -903,7 +911,7 @@ class BusIf(Module):
         cas0_s = decode_state(state,
             idle                 = 0,
             idle_break           = 0,
-            ras_cas0             = 1,
+            ras_cas0             = ~dram_wait_i0,
             cas0_cas1            = 0,
             cas1_cas0            = 1,
             ras_wait             = 0,
@@ -967,7 +975,7 @@ class BusIf(Module):
         addr_col_sel_s = decode_state(state,
             idle                 = 0,
             idle_break           = 0,
-            ras_cas0             = 1,
+            ras_cas0             = ~dram_wait_i0,
             cas0_cas1            = 1,
             cas1_cas0            = 1,
             ras_wait             = 0,
@@ -983,7 +991,7 @@ class BusIf(Module):
         apply_back_pressure = decode_state(state,
             idle                 = 0,
             idle_break           = 1,
-            ras_cas0             = 0,
+            ras_cas0             = dram_wait_i0,
             cas0_cas1            = 0,
             cas1_cas0            = 0,
             ras_wait             = 1,
@@ -1097,7 +1105,7 @@ class BusIf(Module):
         data_out_sel_s = decode_state(state,
             idle                 = 0,
             idle_break           = 0,
-            ras_cas0             = 0,
+            ras_cas0             = Select(dram_wait_i0, 0, 2),
             cas0_cas1            = 1,
             cas1_cas0            = 0,
             ras_wait             = address_phase_data_out_sel,
@@ -1129,7 +1137,7 @@ class BusIf(Module):
         addr_phase_data_en_s = decode_state(state,
             idle                 = 0,
             idle_break           = 0,
-            ras_cas0             = 0,
+            ras_cas0             = dram_wait_i0,
             cas0_cas1            = 0,
             cas1_cas0            = 0,
             ras_wait             = 1,

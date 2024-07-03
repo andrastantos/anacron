@@ -93,6 +93,72 @@ def sim():
             ret_val = ret_val | (get_byte(addr + i) << (i * 8))
         return ret_val
 
+    @dataclass
+    class WSRequest(object):
+        type: str
+        count: int
+
+    class WSGen(GenericModule):
+        clk = ClkPort()
+        rst = RstPort()
+        n_ras_a = Input(logic)
+        n_ras_b = Input(logic)
+        n_nren  = Input(logic)
+        n_cas_0 = Input(logic)
+        n_cas_1 = Input(logic)
+        n_wait = Output(logic)
+
+        def construct(self, ws_queue: List[WSRequest]):
+            self.ws_queue = ws_queue
+
+        def simulate(self, simulator: Simulator) -> TSimEvent:
+            def wait_clk():
+                yield (self.clk, )
+                while self.clk.get_sim_edge() != EdgeType.Positive:
+                    yield (self.clk, )
+
+            current_wait: WSRequest = None
+
+            while True:
+                self.n_wait <<= 1
+                if current_wait is None:
+                    yield from wait_clk()
+
+                    if len(self.ws_queue) > 0:
+                        current_wait = self.ws_queue[0]
+                        self.ws_queue.pop(0)
+                # Re-checking current_wait, as it could have changed above.
+                if current_wait is not None:
+                    if current_wait.type == "IDLE":
+                        # Wait until the bus goes idle
+                        while (self.n_ras_a == 0 or self.n_ras_b == 0 or self.n_nren == 0):
+                            yield (self.n_ras_a, self.n_ras_b, self.n_nren)
+                    elif current_wait.type == "RAS":
+                        # Wait until the bus goes idle
+                        while (self.n_ras_a == 0 or self.n_ras_b == 0 or self.n_nren == 0):
+                            yield (self.n_ras_a, self.n_ras_b, self.n_nren)
+                        # Wait for at least one 'ras' to go active
+                        yield (self.n_ras_a, self.n_ras_b, self.n_nren)
+                        simulator.sim_assert(self.n_ras_a == 0 or self.n_ras_b == 0 or self.n_nren == 0)
+                    elif current_wait.type == "CAS":
+                        # Wait until both CAS lines are high
+                        while (self.n_cas_0 == 0 or self.n_cas_1 == 0):
+                            yield (self.n_cas_0, self.n_cas_1)
+                        # Wait for at least one 'cas' to go active
+                        yield (self.n_cas_0, self.n_cas_1)
+                        simulator.sim_assert(self.n_cas_0 == 0 or self.n_cas_1 == 0)
+
+                    # Assert wait and verify that no control signals change state during the wait
+                    self.n_wait <<= 0
+                    for _ in range(current_wait.count):
+                        yield from wait_clk()
+                    current_wait = None
+                    self.n_wait <<= 1
+
+
+
+
+
     class DRAM_sim(GenericModule):
         addr_bus_len = 11
         addr_bus_mask = (1 << addr_bus_len) - 1
@@ -261,9 +327,10 @@ def sim():
 
         request_port = Output(BusIfRequestIf)
 
-        def construct(self, expected_transactions: Sequence[ExpectedTransaction], expected_responses: Sequence[ExpectedResponse]) -> None:
+        def construct(self, expected_transactions: Sequence[ExpectedTransaction], expected_responses: Sequence[ExpectedResponse], ws_queue: Sequence[WSRequest]) -> None:
             self.expected_transactions = expected_transactions
             self.expected_responses = expected_responses
+            self.ws_queue = ws_queue
 
         def post_sim_test(self, simulator: Simulator):
             #simulator.sim_assert(len(self.expected_transactions) == 0)
@@ -277,8 +344,7 @@ def sim():
             self.burst_request_type = None
             self.burst_wait_states = None
             self.burst_do_write = None
-            self.expected_transactions_prep: Sequence[ExpectedTransaction] = []
-            self.expected_responses: Sequence[ExpectedResponse] = []
+            self.burst_cas_waits = None
 
             def reset():
                 self.request_port.valid <<= 0
@@ -289,7 +355,13 @@ def sim():
                 self.request_port.request_type <<= None
                 self.request_port.terminal_count <<= None
 
-            def read_or_write(addr, burst_len, byte_en, data, wait_states, request_type: RequestTypes, do_write):
+
+            def idle_wait(wait_states):
+                self.ws_queue.append(WSRequest("IDLE", wait_states))
+                return
+                yield
+
+            def read_or_write(addr, burst_len, byte_en, data, wait_states, request_type: RequestTypes, do_write, *, ras_waits=None, cas_waits=None):
                 if burst_len is not None:
                     assert addr is not None
                     self.burst_cnt = burst_len
@@ -298,6 +370,7 @@ def sim():
                     self.burst_wait_states = wait_states
                     self.burst_request_type = request_type
                     self.burst_do_write = do_write
+                    self.burst_cas_waits = cas_waits
                 else:
                     assert addr is None
                     # burst should not change wait-states
@@ -308,7 +381,13 @@ def sim():
                     if wait_states is None: wait_states = self.burst_wait_states
                     if request_type is None: request_type = self.burst_request_type
                     if do_write is None: do_write = self.burst_do_write
+                    if cas_waits is None: cas_waits = self.burst_cas_waits
                 assert self.burst_cnt >= 0
+
+                if ras_waits is not None:
+                    self.ws_queue.append(WSRequest("RAS", ras_waits))
+                if cas_waits is not None:
+                    self.ws_queue.append(WSRequest("CAS", cas_waits))
 
                 addr = self.burst_addr | ((wait_states & 0x7) << 27)
                 self.request_port.valid <<= 1
@@ -334,18 +413,18 @@ def sim():
                 data_str = f"{data:#04x}" if data is not None else "0x----"
                 simulator.log(f"{request_type.name.upper()} {('reading','writing')[do_write]} address {addr:#08x} {interpret_addr(addr)} data {data_str} bytes {byte_en:02b}")
 
-            def start_read(addr, burst_len, byte_en, wait_states, request_type):
+            def start_read(addr, burst_len, byte_en, wait_states, request_type, *, ras_waits=None, cas_waits=None):
                 if burst_len > 0:
                     byte_en = 3
-                read_or_write(addr, burst_len, byte_en, None, wait_states, request_type, do_write=False)
+                read_or_write(addr, burst_len, byte_en, None, wait_states, request_type, do_write=False, ras_waits=ras_waits, cas_waits=cas_waits)
 
-            def start_write(addr, burst_len, byte_en, data, wait_states, request_type):
+            def start_write(addr, burst_len, byte_en, data, wait_states, request_type, *, ras_waits=None, cas_waits=None):
                 if burst_len > 0:
                     byte_en = 3
-                read_or_write(addr, burst_len, byte_en, data, wait_states, request_type, do_write=True)
+                read_or_write(addr, burst_len, byte_en, data, wait_states, request_type, do_write=True, ras_waits=ras_waits, cas_waits=cas_waits)
 
-            def cont_burst(data = None):
-                read_or_write(None, None, None, data, None, None, None)
+            def cont_burst(data = None, *, cas_waits=None):
+                read_or_write(None, None, None, data, None, None, None, ras_waits=None, cas_waits=cas_waits)
 
             def wait_clk():
                 yield (self.clk, )
@@ -365,19 +444,19 @@ def sim():
                 while not (self.request_port.ready & self.request_port.valid):
                     yield from wait_clk()
 
-            def write(addr, byte_en, data, wait_states=7, request_type=RequestTypes.pipeline):
-                start_write(addr, len(data)-1, byte_en, data[0], wait_states, request_type)
+            def write(addr, byte_en, data, wait_states=7, request_type=RequestTypes.pipeline, *, ras_waits=None, cas_waits=None):
+                start_write(addr, len(data)-1, byte_en, data[0], wait_states, request_type, ras_waits=ras_waits, cas_waits=cas_waits)
                 yield from wait_for_advance()
                 while self.burst_cnt > 0:
-                    cont_burst(data[self.burst_beat+1])
+                    cont_burst(data[self.burst_beat+1], cas_waits=cas_waits)
                     yield from wait_for_advance()
                 reset()
 
-            def read(addr, byte_en, burst_len, wait_states=7, request_type=RequestTypes.pipeline):
-                start_read(addr, burst_len, byte_en, wait_states, request_type)
+            def read(addr, byte_en, burst_len, wait_states=7, request_type=RequestTypes.pipeline, *, ras_waits=None, cas_waits=None):
+                start_read(addr, burst_len, byte_en, wait_states, request_type, ras_waits=ras_waits, cas_waits=cas_waits)
                 yield from wait_for_advance()
                 while self.burst_cnt > 0:
-                    cont_burst()
+                    cont_burst(cas_waits=cas_waits)
                     yield from wait_for_advance()
                 reset()
                 yield from wait_clk()
@@ -391,7 +470,9 @@ def sim():
             WAIT_0 = 7
             WAIT_1 = 6
             WAIT_2 = 5
-            yield from read(DRAM_SEL | 0x00001234,0,3)
+            yield from idle_wait(5)
+            yield from wait_clk()
+            yield from read(DRAM_SEL | 0x00001234,0,3, ras_waits=4)
             yield from read(DRAM_SEL | 0x00000512,1,3)
             yield from read(DRAM_SEL | 0x00000624,3,3)
             yield from read(NREN_SEL | 0x00000703,0,1)
@@ -491,17 +572,19 @@ def sim():
         def body(self):
             expected_responses = []
             expected_transactions = []
+            ws_queue = []
 
             seed(0)
             req = Wire(BusIfRequestIf)
             rsp = Wire(BusIfResponseIf)
-            self.req_generator = Generator(expected_transactions, expected_responses)
+            self.req_generator = Generator(expected_transactions, expected_responses, ws_queue)
             req <<= self.req_generator.request_port
 
             csr_driver = CsrDriver()
 
             dram_if = Wire(ExternalBusIf)
             dram_sim = DRAM_sim(expected_transactions)
+            ws_gen = WSGen(ws_queue)
 
             dut = BusIf()
 
@@ -512,6 +595,12 @@ def sim():
             dram_sim.bus_if <<= dram_if
             dut.reg_if <<= csr_driver.reg_if
 
+            dram_if.n_wait.set_source(ws_gen.n_wait, Netlist.get_current_scope()) # we're re-binding the wait signal here.
+            ws_gen.n_cas_0 <<= dram_if.n_cas_0
+            ws_gen.n_cas_1 <<= dram_if.n_cas_1
+            ws_gen.n_ras_a <<= dram_if.n_ras_a
+            ws_gen.n_ras_b <<= dram_if.n_ras_b
+            ws_gen.n_nren <<= dram_if.n_nren
 
         def simulate(self, simulator: Simulator) -> TSimEvent:
             def clk() -> TSimEvent:

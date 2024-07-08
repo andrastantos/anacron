@@ -133,7 +133,7 @@ Pin Number Pin Name         Pin Direction   Description
 31         n_we             Output          Active low write-enable
 32         n_rst            Input           Active low reset input
 33         n_int            Output          Open-drain, active-low interrupt output
-34         n_wait           Input           Active low wait-state input
+34         n_wait           Output          Active low wait-state input
 35         ???              Output          Reserved for bus-sharing hand-shake, if needed
 36
 37         n_reg_sel        Input           register access select
@@ -143,3 +143,52 @@ Pin Number Pin Name         Pin Direction   Description
 ========== ================ =============== ===========
 
 So, we're missing the audio codec signals. If we don't have those though, we could remove n_we as we won't do writes ever.
+
+Speed considerations
+====================
+
+NOTE: this setup doesn't allow for EDO access: only FPM mode is possible. The whole point of EDO is that the data stays active after CAS de-assertion, we we can't do due to our DDR operation.
+
+Given that the external logic interfacing to DRAM adds about 10ns of extra delay per stage (let's hope we only have one), we get the following:
+
+Here's a modern FPM DRAM datasheet: https://www.issi.com/WW/pdf/41LV16105D.pdf here's another (obsolete part): https://datasheet.octopart.com/MT4C1M16C3DJ6-Micron-datasheet-115259.pdf
+
+Finally, here's a rather old and small FPM part: https://tvsat.com.pl/PDF/U/UD61464.pdf
+
+1. 2x10ns decode/buffer delay (one for RAS, one for CAS)
+2. 60/70/80/100ns access delay (half for RAS, half for CAS)
+3. 10ns slack
+
+We get 90/100/110/130ns cycle time, translating to 11,10,9 and 7.5MHz clock rates respectively.
+
+If we *did* do FPM timing, that's a different story, we could do the following:
+
+1. 10ns decode delay
+2. 40ns RAS time
+3. 10ns buffer delay
+4. 20ns CAS time
+5. 10ns buffer delay
+6. 20ns CAS time
+7. 60ns pre-charge time
+
+Points 3-4 gives us half a cycle, so a 60ns cycle-time is achievable, resulting in a 16MHz clock rate.
+
+OK, so assuming *that*!
+
+And also assuming a 32-byte burst-size, we get:
+
+1 clock cycle for RAS
+8 clock cycles for data transfer
+1 clock cycle for pre-charge
+
+10 clock cycles gives us 32 bytes, or a transfer rate of over 50MBps. That's substantial!
+
+And 16MHz clock rates should not be out of the realms of possibility for a DIP package. Maybe pushing it a little, but not by much.
+
+So, the architecture here should be:
+
+1. Tiny L1 instruction cache (read only, maybe a direct-map 1kB, line size: 32 bytes).
+2. Tiny L1 data cache (write-back, 1kB direct-map, line size: 8 bytes).
+3. MMU with 1kB page size and three levels
+
+The data cache might not even be needed, but would certainly help a lot with IPC.

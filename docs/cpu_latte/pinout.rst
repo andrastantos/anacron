@@ -47,10 +47,10 @@ Pin Number Pin Name    Pin Direction   Description
 32         n_wait      Input           Active low wait-state input
 33         ???         Output          Reserved for bus-sharing hand-shake, if needed
 34         dma_req0
-35         dma_ack0
-36         dma_req1
-37         dma_ack1
-38         dma_tc
+35         dma_req1
+36         dma_req2
+37         dma_req3
+38
 39         sys_clk     Input           Clock input
 40         VCC         5V power        Power input
 ========== =========== =============== ===========
@@ -81,7 +81,7 @@ RAS and NREN signals are encoded on 4 pins as follows:
 8 - RAS 8
 9 - RAS 9
 10 - RAS 10
-11 - RAS 11
+11 - DMA CH REQ
 12 - VRAM
 13 - NREN
 14 - refresh
@@ -96,6 +96,7 @@ Having 12 RAS banks limits the total addressable DRAM to 192MB with an extra 16M
 What used to be 4 DMA channels on Espresso is now reduced to 2. Not sure how useful they are though...
 
 The corresponding video controller pinout would be as follows:
+
 
 ========== ================ =============== ===========
 Pin Number Pin Name         Pin Direction   Description
@@ -119,23 +120,23 @@ Pin Number Pin Name         Pin Direction   Description
 17         md5              I/O             Data bus
 18         md6              I/O             Data bus
 19         md7              I/O             Data bus
-20         md8              I/O             Data bus
-21         md9              I/O             Data bus
-22         md10             I/O             Data bus
-23         md11             I/O             Data bus
-24         md12             I/O             Data bus
-25         md13             I/O             Data bus
-26         md14             I/O             Data bus
-27         md15             I/O             Data bus
-28         GND              GND             Ground input
+20         GND              GND             Ground input
+21         md8              I/O             Data bus
+22         md9              I/O             Data bus
+23         md10             I/O             Data bus
+24         md11             I/O             Data bus
+25         md12             I/O             Data bus
+26         md13             I/O             Data bus
+27         md14             I/O             Data bus
+28         md15             I/O             Data bus
 29         ras0             Output          RAS select
-30         n_cas            Output          Active low column select, all bytes
-31         n_we             Output          Active low write-enable
-32         n_rst            Input           Active low reset input
-33         n_int            Output          Open-drain, active-low interrupt output
-34         n_wait           Output          Active low wait-state input
-35         ???              Output          Reserved for bus-sharing hand-shake, if needed
-36
+30         n_cas_0          Output          Active low column select, even bytes
+31         n_cas_1          Output          Active low column select, odd bytes
+32         n_we             Output          Active low write-enable
+33         n_rst            Input           Active low reset input
+34         n_int            Output          Open-drain, active-low interrupt output
+35         n_wait           Output          Active low wait-state input
+36         ???              Output          Reserved for bus-sharing hand-shake, if needed
 37         n_reg_sel        Input           register access select
 38         video_clk        Input           Clock input
 39         sys_clk          Input           Clock input
@@ -143,6 +144,8 @@ Pin Number Pin Name         Pin Direction   Description
 ========== ================ =============== ===========
 
 So, we're missing the audio codec signals. If we don't have those though, we could remove n_we as we won't do writes ever.
+
+With the ~50MBps transfer rate of the DRAM interface (lower due to contention negotiation and CPU accesses) really not much more than VGA@256 colors is realistic to assume for resolution. This in turn means, that no more than 0.5-1MB of video RAM is necessary. So, having the ability to address up to 16MB is quite a bit generous.
 
 Speed considerations
 ====================
@@ -192,3 +195,121 @@ So, the architecture here should be:
 3. MMU with 1kB page size and three levels
 
 The data cache might not even be needed, but would certainly help a lot with IPC.
+
+DMA considerations
+==================
+
+Can we do an interesting DMA protocol? Something that (in the Audio and the I/O chips) we could use to have:
+
+- Multiple DMA channels
+- Interesting addressing modes
+- memory-to-memory transfers
+
+Right now DMA is very simplistic: it generates addresses but data generation is the responsibility of the initiator. The data directly flows between the addressed target and the DMA initiator.
+
+A more complex (albeit potentially slower) implementation is a two-step process, where, first the data is transferred from the initiator into an internal DMA buffer, then a second transfer sends it to the target (or the other way around for DMA reads).
+
+This two-step process has several advantages:
+
+1. An external (I/O mapped) DMA controller can generate as many DMA requests as it wants. The DMA access phase would then be programmed to access a DMA controller register (which in turn would generate the nDACK signal to the true initiator) and let the data flow between the internal buffer and the initiator. The second transfer would then occur between the DMA controller and the destination memory location, whatever that may be.
+
+2. All sorts of weird DMA transfers can be programmed as the read and write engines are now separated and independent. Potentially descriptor-based DMAs, linked-list DMAs, even DMA ISAs are possible.
+
+3. We sill need to control TC generation and channel-selection.
+
+4. DMA channels can still implement bus-request/grant hand-shake, I think.
+
+In this model 'DACK' doesn't really exist. This is replaced by the address presented in the appropriate phase of the DMA transfer.
+
+'TC' can also be implemented as part of that address.
+
+One could have a 3-phase DMA whereby, upon DRQ assertion:
+
+for DMA writes
+1. A read transfer to a specific address is issued, the response is the DMA channel #
+2. A second read transfer reads from a DMA#-specific address, which fetches the data in an internal buffer (with potentially address-count or TC info on some of the address bits)
+3. A write transfer writes to the target memory location from the internal buffer
+
+for DMA reads
+1. A read transfer to a specific address is issued, the response is the DMA channel #
+2. A second read transfer reads from the target memory location to the internal buffer
+3. A write transfer writes the data from the internal buffer to a DMA#-specific address (with potentially address-count or TC info on some of the address bits)
+
+Even bursting is possible if steps 2/3 repeated several times to fill a large(ish) internal buffer.
+
+Channel query protocol
+----------------------
+
+When the DMA engine is ready to serve a DMA request, it issues a single-word read transfer to address 0x1fffff of RAS bank for 'DMA' responses.
+This means that during the RAS cycle, all data-pins are driven high, the data-bus is 'pre-charged'. External weak pull-ups will keep this state in the subsequent CAS cycle, unless someone pulls the data-bits low. The ma[2:0] bus is driven to 0, allowing for future channel expansion, if needed.
+
+The subsequent CAS cycle is when the channel request status is read from the data-pins. Data-pins are driven in an open-drain fashion: each requestor is driving up to one data-line to 0, indicating that a request is pending on the associated DMA channel. Thus, up to 16 DMA channels can be addressed. DMA requestors are also required to decode ma[2:0] during the RAS cycle and only respond if it matches their request 'block'.
+
+This allows for up to 8 blocks, a total of 128 DMA channels.
+
+NOTE: because we depend on bus 'pre-charge', we can't 'burst' cannel queries, that is, only a single CAS cycle is allowed.
+
+Sound engine
+------------
+
+The sound engine, now being kicked out of the video controller will have to become its own thing. One possible pinout is the following:
+
+========== ================ =============== ===========
+Pin Number Pin Name         Pin Direction   Description
+========== ================ =============== ===========
+1          ma0         Output          Multiplexed address bus
+2          ma1         Output          Multiplexed address bus
+3          ma2         Output          Multiplexed address bus
+4          md0         I/O             Data bus
+5          md1         I/O             Data bus
+6          md2         I/O             Data bus
+7          md3         I/O             Data bus
+8          md4         I/O             Data bus
+9          md5         I/O             Data bus
+10         md6         I/O             Data bus
+11         md7         I/O             Data bus
+12         md8         I/O             Data bus
+13         md9         I/O             Data bus
+14         md10        I/O             Data bus
+15         md11        I/O             Data bus
+16         md12        I/O             Data bus
+17         md13        I/O             Data bus
+18         md14        I/O             Data bus
+19         md15        I/O             Data bus
+20         GND         GND             Ground input
+21         ras0        Output          RAS select
+22         ras1        Output          RAS select
+23         ras2        Output          RAS select
+24         ras4        Output          RAS select
+25         n_cas_0     Output          Active low column select, byte 0
+26         n_cas_1     Output          Active low column select, byte 1
+27         n_cas_2     Output          Active low column select, byte 2
+28         n_cas_3     Output          Active low column select, byte 3
+29         n_we        Output          Active low write-enable
+30         n_rst       Input           Active low reset input
+31         n_int       Input           Active low interrupt input
+32         n_wait      Input           Active low wait-state input
+33         ???         Output          Reserved for bus-sharing hand-shake, if needed
+34         i2s_clk     Input           i2s interface clock input
+35         i2s_frm     Output          i2s interface frame
+36         i2s_din     Output          i2s interface data in
+37         i2s_dout    Output          i2s interface data out
+38         n_reg_sel   Input           Register access chip-select
+39         sys_clk     Input           Clock input
+40         VCC         5V power        Power input
+========== ================ =============== ===========
+
+This allows full memory access to the audio controller.
+
+Let's say audio has generators, each with a working set of 32 bytes. These 32 bytes are read in at the beginning of a generators execution, modified and written back again. This incidentally one full burst, so it takes 20 cycles to complete (10 for the read, 10 for the write).
+
+If there are 128 generator engines, each running at 44.1ksps, that would mean 5.6M generator executions per second, or a bus requirement of 113MHz. That's ... a lot.
+
+How about: 16 byte working set (6 cycles to read, another 6 to write), 64 generator engines and 32ksps, that would reduce the requirement to 24.5MHz bus speed. Still, enormous! That's still not some sort of background process, it's a major hog on system resources and would need it's own RAS bank.
+
+At the same time, the whole memory needed for this is 16bytes x 64 generators, which is just 1kByte. Even in the original math it was only 4kByte. Something that we might fit on-chip (we're thinking similar sizes for caches), in which case bandwidth is not nearly as big an issue and external memory accesses would be very rare indeed.
+
+
+
+
+Audio has its own issues though: it probably wants very fast access to a small amount of memory. This is because each generator has ~16-32Bytes of working set, but there are ideally hundreds of them, each executing at 48ksps. So we're looking at ~5M generator executions and if each needs to access it's working set of 32 bytes (one read, one write), that would result

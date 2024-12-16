@@ -45,11 +45,11 @@ Pin Number Pin Name    Pin Direction   Description
 30         n_rst       Input           Active low reset input
 31         n_int       Input           Active low interrupt input
 32         n_wait      Input           Active low wait-state input
-33         ???         Output          Reserved for bus-sharing hand-shake, if needed
-34         dma_req0
-35         dma_req1
-36         dma_req2
-37         dma_req3
+33         n_dma_req   Input           Active low DMA-request input (wired AND logic on the system level with external pull-up)
+34         n_bus_req   Input           Active low bus-request input
+35
+36
+37
 38
 39         sys_clk     Input           Clock input
 40         VCC         5V power        Power input
@@ -61,6 +61,8 @@ Each RAS bank (0 through 7) can be up to 16MB large. This means 24 address bits.
 +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
 |RAS ma[2:0]|         RAS md[15:8]          |          RAS md[7:0]          |CAS ma[2:0]|  CAS  |
 +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+<-------------- DRAM RAS bits --------------><-------------- DRAM CAS bits -------------><-byte->
+<--- gets latched inside DRAM during RAS ---><--- needs external register --><-- burst ->
 
 Address bits 12...5 (md[7:0]) need to be registered and supplied to the DRAM address bits during
 CAS cycles. Address bits 23...13 and 4...2 need tri-state buffers.
@@ -70,22 +72,26 @@ limited to 8 beats, or 32 bytes.
 
 RAS and NREN signals are encoded on 4 pins as follows:
 
-0 - RAS 0
-1 - RAS 1
-2 - RAS 2
-3 - RAS 3
-4 - RAS 4
-5 - RAS 5
-6 - RAS 6
-7 - RAS 7
-8 - RAS 8
-9 - RAS 9
-10 - RAS 10
-11 - DMA CH REQ
-12 - VRAM
-13 - NREN
-14 - refresh
-15 - bus idle
+=========    ========================================
+RAS bank        Usage
+=========    ========================================
+  0             NREN (I/O and ROM) <--- needs to be the first to support boot
+  1             RAS 0
+  2             RAS 1
+  3             RAS 2
+  4             RAS 3
+  5             RAS 4
+  6             RAS 5
+  7             RAS 6
+  8             RAS 7
+  9             RAS 8
+  10            RAS 9
+  11            RAS 10 (VRAM)
+  12            refresh
+  13            DMA transfer
+  14            bus grant
+  15            bus idle
+=========    ========================================
 
 This encoding allows for the use of external pull-ups to idle the bus yet saves 2 extra pins. We probably need an external PAL to decode, but, oh well...
 
@@ -93,10 +99,87 @@ VRAM select video memory (up to 16MB) and NREN selects non-DRAM tragets, such as
 
 Having 12 RAS banks limits the total addressable DRAM to 192MB with an extra 16MB of video RAM and another 16MB for non-RAM addresses.
 
-What used to be 4 DMA channels on Espresso is now reduced to 2. Not sure how useful they are though...
+DRAM refresh
+=============
+During refresh cycles, a RAS-only cycle to bank 12 is issued. The external decode logic is required to assert all bank RAS pins to parallel-refresh all banks. The refresh counter is presented on ma[2:0] and md[15:8]. The value on md[7:0] is not defined and should not be trusted.
 
-The corresponding video controller pinout would be as follows:
+External bus-master protocol
+=============================
+An external bus-master (the video controller) can request access to the bus by asserting the n_bus_req pin. When the CPU is ready to free the bus, it tri-states all but the RAS[3..0] signals while selecting bank 14 on the RAS signals. The external bus-master can now generate transaction on the bus, while holding n_bus_req low  and returning control to the CPU by de-asserting n_bus_req. Multiple bus-masters can be connected to this same request pin through wired-AND logic, but bus-arbitration between these masters is not covered in this document.
 
+DMA protocol
+=============
+The DMA protocol is significantly different from the PC world. A translator chip can be envisioned that handles the protocol translation, if needed.
+
+DMA transfers happen in several phases:
+
+1. An (external) DMA initiator registers its request by pulling `n_dma_req` low. This pin has a pull-up resistor and is driven by all initiators in an open-drain fashion, effectively creating a wired 'and' circuit.
+2. When the CPU is ready to serve the DMA request, it issues a read operation to RAS bank 13. The address in that bank is 0x001fffe0. This pre-charges pins md[15..0] during the RAS cycle; the pins have external weak pull-ups, but the address selection ensures that they start up from a high voltage state independent of their content in the preceding cycle.
+3. During the CAS phase of the read operation, ma[2..0] are driven low, while n_cas_0 is low and all other n_cas_x lines are high. This pattern is decoded by all DMA initiators and is a signal to query the active channel. Every initiator is (pre-allocated) a given data-pin that they drive low, using an open-drain driver to signal their readiness for a transfer. This way, 16 DMA channels can be supported. If needed, ma[2..0] can be used to further decode a 'page', even the 'other' n_cas_x lines can be utilized to further widen the number of DMA channels supported all the way to 512.
+4. At this point, the CPU reads the state of md[15..0] pins to determine the requestor. With the right channel selected, the real transfer can happen:
+
+For DMA reads
+-------------
+1. A regular read cycle (potentially even a burst) is performed to read in the required content from the DMA target - DRAM most likely - into an internal buffer. There's really nothing special about this transfer, it's just a regular memory access cycle; the address is generated by the DMA engine inside Latte.
+2. A write cycle is issued to RAS bank 13. The address in that bank is set to indicate the phase of the transfer, the target channel as well as TC status in the following manner:
+    ma[2] is set 1, indicating a data transfer (as opposed to the channel query phase before, where it was set to 0).
+    ma[1] is set to the TC status. 0 indicating that more transfers are possible, 1 indicating the termination of the transfer
+    ma[0] is set 0
+    md[15...0] is set to a 1-hot encoded channel value: 1 indicating a de-selected channel, 0 indicating the selected one.
+Otherwise, this is a regular write (potentially burst) cycle; the address incrementing for every beat but only n_cas_0 is used to indicate the CAS part of the cycle. The data is transferred from the internal buffer into the initiator.
+
+NOTE: The fact that only n_cas_0 is used means that data-transfer rates half of what they could be. Maybe as a future improvement, for really high-speed DMAs, all CAS lines could be utilized, but of course this also means that all CAS lines need to be wired up and decoded on the initiator, needing more pins. If this comes to pass, the initiator type (i.e. the use or not of the rest of the CAS lines) needs to be configurable in the DMA controller.
+
+For DMA writes
+--------------
+1. A read cycle is issued to RAS bank 13. The address in that bank is set to indicate the phase of the transfer, the target channel as well as TC status in the following manner:
+    ma[2] is set 1, indicating a data transfer (as opposed to the channel query phase before, where it was set to 0).
+    ma[1] is set to the TC status. 0 indicating that more transfers are possible, 1 indicating the termination of the transfer
+    ma[0] is set 0
+    md[15...0] is set to a 1-hot encoded channel value: 1 indicating a de-selected channel, 0 indicating the selected one.
+Otherwise, this is a regular read (potentially burst) cycle; the address incrementing for every beat but only n_cas_0 is used to indicate the CAS part of the cycle. The data during the CAS cycles is presented by the initiator on the bus and stored in a temporary register inside the DMA controller.
+1. A regular write cycle (potentially even a burst) is performed to write the required content to the DMA target - DRAM most likely - from the internal buffer. There's really nothing special about this transfer, it's just a regular memory access cycle; the address is generated by the DMA engine inside Latte.
+
+NOTE: The fact that only n_cas_0 is used means that data-transfer rates half of what they could be. Maybe as a future improvement, for really high-speed DMAs, all CAS lines could be utilized, but of course this also means that all CAS lines need to be wired up and decoded on the initiator, needing more pins. If this comes to pass, the initiator type (i.e. the use or not of the rest of the CAS lines) needs to be configurable in the DMA controller.
+
+Memory to memory DMAs
+---------------------
+1. A regular read cycle (potentially even a burst) is performed to read in the required content from the DMA target - DRAM most likely - into an internal buffer. There's really nothing special about this transfer, it's just a regular memory access cycle; the address is generated by the DMA engine inside Latte.
+2. A regular write cycle (potentially even a burst) is performed to write the required content to the DMA target - DRAM most likely - from the internal buffer. There's really nothing special about this transfer, it's just a regular memory access cycle; the address is generated by the DMA engine inside Latte.
+
+Since there are no address-restrictions on this type of cycle, I/O-to-memory, I/O-to-I/O or memory-to-I/O cycles are also possible here. TC information however is not carried in the transfers
+
+DMA transfers sizes
+--------------------
+DMA transfers always happen in sizes that match the initiator:
+
+8-bit initiators are always accessed 8-bit at a time on the lower byte of the data-bus.
+16-bit initiators are always accessed 16-bit at a time on the full data-bus.
+
+This design has the implication that 16-bit initiators can't really deal with 8-bit (or unaligned, 16-bit) transfers. If such support is needed, the DMA transfers need to be orchestrated as memory-to-memory transfers.
+
+DMA initiator implementation
+----------------------------
+DMA initiators need access to the following pins:
+1. md[7..0] for 8-bit and md[15..0] for 16-bit initiators
+2. ability to drive n_dma_req
+3. a DMA transfer selector input (decoded from ras[3..0], bank 13 by external logic potentially)
+4. ma[1] if TC detection is needed
+5. ma[2] which decodes the phase of the DMA transaction
+6. n_cas_0 to differentiate the address phase from the data-phase
+
+in a PC-style system in contrast and DMA initiator would need:
+1. md[7..0] for 8-bit and md[15..0] for 16-bit initiators
+2. ability to drive n_dma_req
+3. a DMA transfer response input (a.k.a. DACK)
+4. TC detection is needed
+
+We see that two extra pins are needed compared to the PC-style system; the internal implementation is also significantly more complicated with the need of support for the various phases as well as the ability to drive the channel ID onto the data-bus.
+
+Video controller
+=================
+
+We certainly don't want the video controller to be a bus-master: we want a separate bus to VRAM so that the CPU can continue running code while the video controller is off doing it's thing refreshing the display. This has consequences though: we can't really rely on the bus-master protocol. Instead we'll have to do the same tricky nWAIT based thing we did with Espresso. That brings with it the isolation-buffer nightmare we had on Espresso too, complicating the motherboard (and driving up cost) quite a bit.
 
 ========== ================ =============== ===========
 Pin Number Pin Name         Pin Direction   Description
@@ -150,7 +233,7 @@ With the ~50MBps transfer rate of the DRAM interface (lower due to contention ne
 Speed considerations
 ====================
 
-NOTE: this setup doesn't allow for EDO access: only FPM mode is possible. The whole point of EDO is that the data stays active after CAS de-assertion, we we can't do due to our DDR operation.
+NOTE: this setup doesn't allow for EDO access: only FPM mode is possible. The whole point of EDO is that the data stays active after CAS de-assertion, something we can't do due to our DDR operation.
 
 Given that the external logic interfacing to DRAM adds about 10ns of extra delay per stage (let's hope we only have one), we get the following:
 
@@ -195,6 +278,7 @@ So, the architecture here should be:
 3. MMU with 1kB page size and three levels
 
 The data cache might not even be needed, but would certainly help a lot with IPC.
+
 
 DMA considerations
 ==================
@@ -247,7 +331,7 @@ The subsequent CAS cycle is when the channel request status is read from the dat
 
 This allows for up to 8 blocks, a total of 128 DMA channels.
 
-NOTE: because we depend on bus 'pre-charge', we can't 'burst' cannel queries, that is, only a single CAS cycle is allowed.
+NOTE: because we depend on bus 'pre-charge', we can't 'burst' channel queries, that is, only a single CAS cycle is allowed.
 
 Sound engine
 ------------

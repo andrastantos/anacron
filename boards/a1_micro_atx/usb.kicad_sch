@@ -4487,7 +4487,6 @@
 	)
 	(label "USB_DN4_D+"
 		(at 144.78 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4498,7 +4497,6 @@
 	)
 	(label "USB_DN7_D-"
 		(at 144.78 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4509,7 +4507,6 @@
 	)
 	(label "USB_D-"
 		(at 62.23 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4520,7 +4517,6 @@
 	)
 	(label "I2C_SCL"
 		(at 67.31 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4531,7 +4527,6 @@
 	)
 	(label "USB_DN2_D+"
 		(at 144.78 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4542,7 +4537,6 @@
 	)
 	(label "USB_DN5_D-"
 		(at 144.78 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4553,7 +4547,6 @@
 	)
 	(label "USB_DN7_D+"
 		(at 144.78 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4564,7 +4557,6 @@
 	)
 	(label "USB_DN3_D+"
 		(at 144.78 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4575,7 +4567,6 @@
 	)
 	(label "USB_DN6_D-"
 		(at 144.78 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4586,7 +4577,6 @@
 	)
 	(label "USB_DN3_D-"
 		(at 144.78 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4597,7 +4587,6 @@
 	)
 	(label "USB_DN6_D+"
 		(at 144.78 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4608,7 +4597,6 @@
 	)
 	(label "I2C_SDA"
 		(at 67.31 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4619,7 +4607,6 @@
 	)
 	(label "USB_DN4_D-"
 		(at 144.78 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4630,7 +4617,6 @@
 	)
 	(label "USB_CLK"
 		(at 62.23 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4641,7 +4627,6 @@
 	)
 	(label "USB_DN5_D+"
 		(at 144.78 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4652,7 +4637,6 @@
 	)
 	(label "USB_D+"
 		(at 62.23 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4663,7 +4647,6 @@
 	)
 	(label "USB_DN_INT_D-"
 		(at 139.7 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4674,7 +4657,6 @@
 	)
 	(label "USB_DN_INT_D+"
 		(at 139.7 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4685,7 +4667,6 @@
 	)
 	(label "USB_DN2_D-"
 		(at 144.78 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4719,7 +4700,6 @@
 	(hierarchical_label "USB_US_D-"
 		(shape bidirectional)
 		(at 26.67 53.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4731,7 +4711,6 @@
 	(hierarchical_label "USB_CLK"
 		(shape input)
 		(at 26.67 58.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4743,7 +4722,6 @@
 	(hierarchical_label "I2C_SCL"
 		(shape bidirectional)
 		(at 26.67 76.2 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4755,7 +4733,6 @@
 	(hierarchical_label "USB_US_D+"
 		(shape bidirectional)
 		(at 26.67 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4767,7 +4744,6 @@
 	(hierarchical_label "I2C_SDA"
 		(shape bidirectional)
 		(at 26.67 73.66 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

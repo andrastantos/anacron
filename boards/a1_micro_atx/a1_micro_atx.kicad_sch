@@ -18761,17 +18761,6 @@
 		)
 		(uuid "1c17057f-e6da-444e-ae3b-4b5c23e90d03")
 	)
-	(text "BUF_NREN"
-		(exclude_from_sim no)
-		(at 226.06 321.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "1dcff4f8-092a-41ec-aa8a-c7f2c2741d8d")
-	)
 	(text "PWR SWITCH"
 		(exclude_from_sim no)
 		(at 524.002 303.784 0)
@@ -18882,20 +18871,8 @@
 		)
 		(uuid "b4987be8-de02-458e-8188-3728aad7e4e7")
 	)
-	(text "BOOT SELECT"
-		(exclude_from_sim no)
-		(at 224.79 298.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dc33e254-2eed-43f0-873b-4f704bad12bd")
-	)
 	(label "BUF_A5"
 		(at 290.83 269.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18906,7 +18883,6 @@
 	)
 	(label "CPU_~{RAS_B}"
 		(at 95.25 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18917,7 +18893,6 @@
 	)
 	(label "CPU_~{INT}"
 		(at 78.74 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18928,7 +18903,6 @@
 	)
 	(label "CPU_D[0..7]"
 		(at 100.33 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18939,7 +18913,6 @@
 	)
 	(label "BUF_A0"
 		(at 140.97 248.92 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18950,7 +18923,6 @@
 	)
 	(label "PG"
 		(at 97.79 386.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18961,7 +18933,6 @@
 	)
 	(label "BUF_~{CAS}"
 		(at 443.23 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18972,7 +18943,6 @@
 	)
 	(label "BUF_DIR"
 		(at 140.97 275.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18983,7 +18953,6 @@
 	)
 	(label "BUF_D0"
 		(at 472.44 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18994,7 +18963,6 @@
 	)
 	(label "GFX_A4"
 		(at 151.13 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19005,7 +18973,6 @@
 	)
 	(label "BUF_~{CAS}"
 		(at 350.52 349.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19016,7 +18983,6 @@
 	)
 	(label "BUF_A0"
 		(at 290.83 256.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19027,7 +18993,6 @@
 	)
 	(label "CPU_DRQ1"
 		(at 86.36 288.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19038,7 +19003,6 @@
 	)
 	(label "GFX_A8"
 		(at 203.2 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19049,7 +19013,6 @@
 	)
 	(label "CPU_A1"
 		(at 400.05 199.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19060,7 +19023,6 @@
 	)
 	(label "BUF_A14"
 		(at 290.83 292.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19071,7 +19033,6 @@
 	)
 	(label "I2C_~{INT}"
 		(at 140.97 260.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19082,7 +19043,6 @@
 	)
 	(label "CPU_A10"
 		(at 398.78 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19093,7 +19053,6 @@
 	)
 	(label "CPU_~{DACK3}"
 		(at 140.97 293.37 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19104,7 +19063,6 @@
 	)
 	(label "CPU_TC"
 		(at 398.78 144.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19115,7 +19073,6 @@
 	)
 	(label "BUF_A6"
 		(at 290.83 271.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19126,7 +19083,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 225.425 311.15 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19137,7 +19093,6 @@
 	)
 	(label "BUF_A12"
 		(at 441.96 331.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19148,7 +19103,6 @@
 	)
 	(label "PWR_IN"
 		(at 36.83 361.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19159,7 +19113,6 @@
 	)
 	(label "GFX_~{WE}"
 		(at 78.74 185.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19170,7 +19123,6 @@
 	)
 	(label "BUF_A22"
 		(at 299.72 351.79 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19181,7 +19133,6 @@
 	)
 	(label "BUF_D3"
 		(at 269.875 256.54 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19192,7 +19143,6 @@
 	)
 	(label "BUF_D4"
 		(at 350.52 266.7 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19203,7 +19153,6 @@
 	)
 	(label "PWR_ON"
 		(at 48.26 381 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19214,7 +19163,6 @@
 	)
 	(label "BUF_DIR"
 		(at 276.86 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19225,7 +19173,6 @@
 	)
 	(label "BUF_A16"
 		(at 441.96 326.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19236,7 +19183,6 @@
 	)
 	(label "BUF_D6"
 		(at 269.875 243.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19247,7 +19193,6 @@
 	)
 	(label "BUF_A13"
 		(at 290.83 289.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19258,7 +19203,6 @@
 	)
 	(label "BUF_A14"
 		(at 441.96 328.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19269,7 +19213,6 @@
 	)
 	(label "CPU_~{WAIT}"
 		(at 95.25 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19280,7 +19223,6 @@
 	)
 	(label "BUF_D2"
 		(at 350.52 261.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19291,7 +19233,6 @@
 	)
 	(label "BUF_D0"
 		(at 271.145 316.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19302,7 +19243,6 @@
 	)
 	(label "CPU_~{INT}"
 		(at 140.97 229.87 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19313,7 +19253,6 @@
 	)
 	(label "GFX_D0"
 		(at 323.85 172.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19324,7 +19263,6 @@
 	)
 	(label "BUF_A1"
 		(at 290.83 259.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19335,7 +19273,6 @@
 	)
 	(label "BUF_A12"
 		(at 298.45 374.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19346,7 +19283,6 @@
 	)
 	(label "BUF_A20"
 		(at 441.96 276.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19357,7 +19293,6 @@
 	)
 	(label "BUF_D7"
 		(at 445.77 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19368,7 +19303,6 @@
 	)
 	(label "BUF_D7"
 		(at 472.44 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19379,7 +19313,6 @@
 	)
 	(label "BUF_D5"
 		(at 445.77 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19390,7 +19323,6 @@
 	)
 	(label "CPU_A6"
 		(at 400.05 209.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19401,7 +19333,6 @@
 	)
 	(label "I2C_SCL"
 		(at 508 312.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19412,7 +19343,6 @@
 	)
 	(label "~{NR_DECODE_EN}"
 		(at 303.53 359.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19423,7 +19353,6 @@
 	)
 	(label "BUF_A22"
 		(at 441.96 271.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19434,7 +19363,6 @@
 	)
 	(label "BUF_D3"
 		(at 350.52 264.16 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19445,7 +19373,6 @@
 	)
 	(label "GFX_D4"
 		(at 323.85 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19456,7 +19383,6 @@
 	)
 	(label "GFX_~{CAS_1}"
 		(at 78.74 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19467,7 +19393,6 @@
 	)
 	(label "CPU_A4"
 		(at 151.13 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19478,7 +19403,6 @@
 	)
 	(label "CPU_~{DACK1}"
 		(at 396.24 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19489,7 +19413,6 @@
 	)
 	(label "CPU_~{RAS_A}"
 		(at 95.25 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19500,7 +19423,6 @@
 	)
 	(label "BUF_~{EN}"
 		(at 500.38 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19511,7 +19433,6 @@
 	)
 	(label "I2C_SDA"
 		(at 25.4 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19522,7 +19443,6 @@
 	)
 	(label "BUF_~{NREN}"
 		(at 358.14 370.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19533,7 +19453,6 @@
 	)
 	(label "CPU_~{RAS_B}"
 		(at 190.5 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19544,7 +19463,6 @@
 	)
 	(label "CPU_A9"
 		(at 195.58 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19555,7 +19473,6 @@
 	)
 	(label "BUF_D1"
 		(at 350.52 259.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19566,7 +19483,6 @@
 	)
 	(label "BUF_~{NREN}"
 		(at 370.84 356.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19577,7 +19493,6 @@
 	)
 	(label "GFX_D6"
 		(at 240.03 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19588,7 +19503,6 @@
 	)
 	(label "CPU_~{WE}"
 		(at 398.78 154.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19599,7 +19513,6 @@
 	)
 	(label "CPU_~{NREN}"
 		(at 398.78 162.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19610,7 +19523,6 @@
 	)
 	(label "CPU_A0"
 		(at 400.05 331.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19621,7 +19533,6 @@
 	)
 	(label "BUF_NREN"
 		(at 328.93 365.76 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19632,7 +19543,6 @@
 	)
 	(label "~{GFX_SEL}"
 		(at 60.96 111.76 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19643,7 +19553,6 @@
 	)
 	(label "VIDEO_DDC_SCL"
 		(at 25.4 175.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19654,7 +19563,6 @@
 	)
 	(label "I2C_SDA"
 		(at 508 307.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19665,7 +19573,6 @@
 	)
 	(label "BUF_D3"
 		(at 271.145 308.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19676,7 +19583,6 @@
 	)
 	(label "BUF_A9"
 		(at 443.23 147.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19687,7 +19593,6 @@
 	)
 	(label "CPU_~{CAS_1}"
 		(at 200.66 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19698,7 +19603,6 @@
 	)
 	(label "CPU_D4"
 		(at 400.05 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19709,7 +19613,6 @@
 	)
 	(label "BUF_A9"
 		(at 290.83 279.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19720,7 +19623,6 @@
 	)
 	(label "CPU_~{CAS_0}"
 		(at 198.12 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19731,7 +19633,6 @@
 	)
 	(label "GFX_~{RAS}"
 		(at 190.5 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19742,7 +19643,6 @@
 	)
 	(label "CPU_D5"
 		(at 242.57 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19753,7 +19653,6 @@
 	)
 	(label "BUF_~{EN}"
 		(at 60.96 123.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19764,7 +19663,6 @@
 	)
 	(label "BUF_A13"
 		(at 298.45 372.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19775,7 +19673,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 225.425 313.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19786,7 +19683,6 @@
 	)
 	(label "CPU_A5"
 		(at 148.59 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19797,7 +19693,6 @@
 	)
 	(label "~{GFX_SEL}"
 		(at 78.74 165.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19808,7 +19703,6 @@
 	)
 	(label "BUF_TC"
 		(at 443.23 144.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19819,7 +19713,6 @@
 	)
 	(label "BUF_A4"
 		(at 290.83 266.7 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19830,7 +19723,6 @@
 	)
 	(label "CPU_D3"
 		(at 255.27 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19841,7 +19733,6 @@
 	)
 	(label "CPU_D6"
 		(at 325.12 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19852,7 +19743,6 @@
 	)
 	(label "CPU_~{DACK1}"
 		(at 140.97 288.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19863,7 +19753,6 @@
 	)
 	(label "ISA_CH_CK"
 		(at 225.425 300.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19874,7 +19763,6 @@
 	)
 	(label "LAN_~{INT}"
 		(at 88.9 317.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19885,7 +19773,6 @@
 	)
 	(label "CPU_D1"
 		(at 250.19 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19896,7 +19783,6 @@
 	)
 	(label "BUF_NREN"
 		(at 398.78 354.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19907,7 +19793,6 @@
 	)
 	(label "CPU_D7"
 		(at 400.05 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19918,7 +19803,6 @@
 	)
 	(label "~{IO_SEL}"
 		(at 261.62 356.87 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19929,7 +19813,6 @@
 	)
 	(label "BUF_A5"
 		(at 440.69 212.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19940,7 +19823,6 @@
 	)
 	(label "I2C_~{INT}"
 		(at 508 309.88 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19951,7 +19833,6 @@
 	)
 	(label "BUF_A12"
 		(at 290.83 287.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19962,7 +19843,6 @@
 	)
 	(label "BUF_~{WE}"
 		(at 140.97 320.04 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19973,7 +19853,6 @@
 	)
 	(label "BUF_A2"
 		(at 440.69 199.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19984,7 +19863,6 @@
 	)
 	(label "CPU_A1"
 		(at 158.75 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19995,7 +19873,6 @@
 	)
 	(label "BUF_D5"
 		(at 271.145 303.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20006,7 +19883,6 @@
 	)
 	(label "~{ROM0_SEL}"
 		(at 261.62 351.79 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20017,7 +19893,6 @@
 	)
 	(label "CPU_DACK"
 		(at 140.97 298.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20028,7 +19903,6 @@
 	)
 	(label "~{LAN_SEL}"
 		(at 140.97 317.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20039,7 +19913,6 @@
 	)
 	(label "CPU_DRQ3"
 		(at 86.36 293.37 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20050,7 +19923,6 @@
 	)
 	(label "BUF_~{WE}"
 		(at 140.97 243.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20061,7 +19933,6 @@
 	)
 	(label "BUF_D1"
 		(at 271.145 313.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20072,7 +19943,6 @@
 	)
 	(label "CPU_A4"
 		(at 400.05 326.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20083,7 +19953,6 @@
 	)
 	(label "CPU_D3"
 		(at 400.05 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20094,7 +19963,6 @@
 	)
 	(label "CPU_~{INT}"
 		(at 38.1 294.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20105,7 +19973,6 @@
 	)
 	(label "CPU_A8"
 		(at 398.78 147.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20116,7 +19983,6 @@
 	)
 	(label "CPU_~{NREN}"
 		(at 464.82 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20127,7 +19993,6 @@
 	)
 	(label "CPU_D6"
 		(at 240.03 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20138,7 +20003,6 @@
 	)
 	(label "~{MRST}"
 		(at 157.48 375.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20149,7 +20013,6 @@
 	)
 	(label "BUF_~{WE}"
 		(at 464.82 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20160,7 +20023,6 @@
 	)
 	(label "BUF_A6"
 		(at 440.69 204.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20171,7 +20033,6 @@
 	)
 	(label "BUF_D0"
 		(at 350.52 256.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20182,7 +20043,6 @@
 	)
 	(label "GFX_A5"
 		(at 148.59 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20193,7 +20053,6 @@
 	)
 	(label "BUF_A18"
 		(at 290.83 302.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20204,7 +20063,6 @@
 	)
 	(label "CPU_A8"
 		(at 203.2 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20215,7 +20073,6 @@
 	)
 	(label "CPU_~{DACK}"
 		(at 140.97 295.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20226,7 +20083,6 @@
 	)
 	(label "BUF_D0"
 		(at 269.875 251.46 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20237,7 +20093,6 @@
 	)
 	(label "BUF_CAS"
 		(at 401.32 222.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20248,7 +20103,6 @@
 	)
 	(label "CPU_~{CAS_0}"
 		(at 398.78 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20259,7 +20113,6 @@
 	)
 	(label "BUF_~{NREN}"
 		(at 443.23 162.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20270,7 +20123,6 @@
 	)
 	(label "BUF_A3"
 		(at 440.69 214.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20281,7 +20133,6 @@
 	)
 	(label "BUF_D3"
 		(at 472.44 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20292,7 +20143,6 @@
 	)
 	(label "~{ISA_SEL}"
 		(at 261.62 354.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20303,7 +20153,6 @@
 	)
 	(label "CPU_~{DACK0}"
 		(at 40.64 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20314,7 +20163,6 @@
 	)
 	(label "GFX_A1"
 		(at 158.75 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20325,7 +20173,6 @@
 	)
 	(label "BUF_A18"
 		(at 441.96 323.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20336,7 +20183,6 @@
 	)
 	(label "CPU_D0"
 		(at 247.65 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20347,7 +20193,6 @@
 	)
 	(label "CPU_A5"
 		(at 400.05 204.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20358,7 +20203,6 @@
 	)
 	(label "CPU_A9"
 		(at 398.78 274.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20369,7 +20213,6 @@
 	)
 	(label "VIDEO_HPD"
 		(at 83.82 222.25 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20380,7 +20223,6 @@
 	)
 	(label "GFX_~{CAS_0}"
 		(at 198.12 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20391,7 +20233,6 @@
 	)
 	(label "LAN_~{INT}"
 		(at 140.97 256.54 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20402,7 +20243,6 @@
 	)
 	(label "CPU_~{DACK0}"
 		(at 396.24 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20413,7 +20253,6 @@
 	)
 	(label "CPU_~{WAIT}"
 		(at 140.97 283.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20424,7 +20263,6 @@
 	)
 	(label "CPU_A7"
 		(at 400.05 207.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20435,7 +20273,6 @@
 	)
 	(label "BUF_D4"
 		(at 472.44 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20446,7 +20283,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 225.425 306.07 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20457,7 +20293,6 @@
 	)
 	(label "GFX_A10"
 		(at 175.26 261.62 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20468,7 +20303,6 @@
 	)
 	(label "BUF_A19"
 		(at 441.96 321.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20479,7 +20313,6 @@
 	)
 	(label "CPU_A7"
 		(at 143.51 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20490,7 +20323,6 @@
 	)
 	(label "BUF_D6"
 		(at 472.44 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20501,7 +20333,6 @@
 	)
 	(label "GFX_D7"
 		(at 237.49 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20512,7 +20343,6 @@
 	)
 	(label "CPU_TC"
 		(at 83.82 247.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20523,7 +20353,6 @@
 	)
 	(label "BUF_A11"
 		(at 290.83 284.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20534,7 +20363,6 @@
 	)
 	(label "BUF_D[0..7]"
 		(at 140.97 280.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20545,7 +20373,6 @@
 	)
 	(label "CPU_~{WE}"
 		(at 95.25 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20556,7 +20383,6 @@
 	)
 	(label "BUF_D[0..7]"
 		(at 140.97 322.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20567,7 +20393,6 @@
 	)
 	(label "BUF_A7"
 		(at 440.69 209.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20578,7 +20403,6 @@
 	)
 	(label "BUF_D0"
 		(at 445.77 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20589,7 +20413,6 @@
 	)
 	(label "CPU_~{DACK2}"
 		(at 40.64 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20600,7 +20423,6 @@
 	)
 	(label "CPU_~{DACK2}"
 		(at 396.24 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20611,7 +20433,6 @@
 	)
 	(label "BUF_D7"
 		(at 269.875 261.62 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20622,7 +20443,6 @@
 	)
 	(label "CPU_~{DACK2}"
 		(at 140.97 290.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20633,7 +20453,6 @@
 	)
 	(label "BUF_D2"
 		(at 472.44 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20644,7 +20463,6 @@
 	)
 	(label "BUF_A16"
 		(at 290.83 297.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20655,7 +20473,6 @@
 	)
 	(label "CPU_D6"
 		(at 400.05 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20666,7 +20483,6 @@
 	)
 	(label "GFX_D0"
 		(at 247.65 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20677,7 +20493,6 @@
 	)
 	(label "BUF_~{WE}"
 		(at 290.83 307.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20688,7 +20503,6 @@
 	)
 	(label "GFX_A[0..10]"
 		(at 78.74 190.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20699,7 +20513,6 @@
 	)
 	(label "BUF_DIR"
 		(at 500.38 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20710,7 +20523,6 @@
 	)
 	(label "BUF_A17"
 		(at 441.96 318.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20721,7 +20533,6 @@
 	)
 	(label "GFX_D3"
 		(at 323.85 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20732,7 +20543,6 @@
 	)
 	(label "CPU_DRQ3"
 		(at 40.64 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20743,7 +20553,6 @@
 	)
 	(label "BUF_~{EN}"
 		(at 440.69 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20754,7 +20563,6 @@
 	)
 	(label "~{SYS_GPIO1_SEL}"
 		(at 260.985 374.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20765,7 +20573,6 @@
 	)
 	(label "GFX_D2"
 		(at 323.85 177.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20776,7 +20583,6 @@
 	)
 	(label "BUF_A7"
 		(at 290.83 274.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20787,7 +20593,6 @@
 	)
 	(label "CPU_~{CAS_1}"
 		(at 95.25 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20798,7 +20603,6 @@
 	)
 	(label "BUF_D2"
 		(at 269.875 248.92 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20809,7 +20613,6 @@
 	)
 	(label "BUF_A4"
 		(at 440.69 201.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20820,7 +20623,6 @@
 	)
 	(label "VIDEO_DDC_SDA"
 		(at 83.82 227.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20831,7 +20633,6 @@
 	)
 	(label "CPU_A8"
 		(at 398.78 276.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20842,7 +20643,6 @@
 	)
 	(label "BUF_A8"
 		(at 440.69 207.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20853,7 +20653,6 @@
 	)
 	(label "ISA_IRQ[2..7]"
 		(at 86.36 275.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20864,7 +20663,6 @@
 	)
 	(label "~{LAN_SEL}"
 		(at 261.62 359.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20875,7 +20673,6 @@
 	)
 	(label "GFX_~{WE}"
 		(at 205.74 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20886,7 +20683,6 @@
 	)
 	(label "GFX_A2"
 		(at 156.21 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20897,7 +20693,6 @@
 	)
 	(label "USB_MAIN_D-"
 		(at 64.77 260.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20908,7 +20703,6 @@
 	)
 	(label "CPU_A0"
 		(at 161.29 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20919,7 +20713,6 @@
 	)
 	(label "GFX_A9"
 		(at 195.58 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20930,7 +20723,6 @@
 	)
 	(label "CPU_A2"
 		(at 156.21 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20941,7 +20733,6 @@
 	)
 	(label "BUF_D7"
 		(at 271.145 298.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20952,7 +20743,6 @@
 	)
 	(label "CPU_A2"
 		(at 400.05 214.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20963,7 +20753,6 @@
 	)
 	(label "CPU_A0"
 		(at 400.05 217.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20974,7 +20763,6 @@
 	)
 	(label "CPU_D0"
 		(at 400.05 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20985,7 +20773,6 @@
 	)
 	(label "CPU_A[0..10]"
 		(at 100.33 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20996,7 +20783,6 @@
 	)
 	(label "CPU_A10"
 		(at 398.78 271.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21007,7 +20793,6 @@
 	)
 	(label "CPU_D2"
 		(at 325.12 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21018,7 +20803,6 @@
 	)
 	(label "BUF_D1"
 		(at 445.77 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21029,7 +20813,6 @@
 	)
 	(label "CPU_A4"
 		(at 400.05 212.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21040,7 +20823,6 @@
 	)
 	(label "GFX_D3"
 		(at 255.27 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21051,7 +20833,6 @@
 	)
 	(label "GFX_D4"
 		(at 245.11 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21062,7 +20843,6 @@
 	)
 	(label "CPU_DACK"
 		(at 466.09 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21073,7 +20853,6 @@
 	)
 	(label "BUF_D6"
 		(at 445.77 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21084,7 +20863,6 @@
 	)
 	(label "GFX_D5"
 		(at 242.57 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21095,7 +20873,6 @@
 	)
 	(label "~{ISA_SEL}"
 		(at 140.97 273.05 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21106,7 +20883,6 @@
 	)
 	(label "CPU_DRQ0"
 		(at 83.82 240.03 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21117,7 +20893,6 @@
 	)
 	(label "BUF_A1"
 		(at 440.69 217.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21128,7 +20903,6 @@
 	)
 	(label "CPU_D2"
 		(at 400.05 107.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21139,7 +20913,6 @@
 	)
 	(label "BUF_D1"
 		(at 472.44 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21150,7 +20923,6 @@
 	)
 	(label "CPU_~{WE}"
 		(at 205.74 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21161,7 +20933,6 @@
 	)
 	(label "CPU_~{INT}"
 		(at 40.64 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21172,7 +20943,6 @@
 	)
 	(label "GFX_D1"
 		(at 250.19 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21183,7 +20953,6 @@
 	)
 	(label "CPU_DRQ2"
 		(at 40.64 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21194,7 +20963,6 @@
 	)
 	(label "CPU_DRQ0"
 		(at 40.64 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21205,7 +20973,6 @@
 	)
 	(label "CPU_A3"
 		(at 153.67 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21216,7 +20983,6 @@
 	)
 	(label "GFX_D6"
 		(at 323.85 187.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21227,7 +20993,6 @@
 	)
 	(label "GFX_~{RAS}"
 		(at 78.74 170.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21238,7 +21003,6 @@
 	)
 	(label "CPU_TC"
 		(at 140.97 300.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21249,7 +21013,6 @@
 	)
 	(label "BUF_A15"
 		(at 290.83 294.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21260,7 +21023,6 @@
 	)
 	(label "~{MRST}"
 		(at 114.3 386.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21271,7 +21033,6 @@
 	)
 	(label "CPU_A3"
 		(at 400.05 316.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21282,7 +21043,6 @@
 	)
 	(label "~{ROM0_SEL}"
 		(at 290.83 312.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21293,7 +21053,6 @@
 	)
 	(label "BUF_D1"
 		(at 269.875 254 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21304,7 +21063,6 @@
 	)
 	(label "CPU_~{DACK3}"
 		(at 40.64 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21315,7 +21073,6 @@
 	)
 	(label "GFX_BUSY"
 		(at 120.65 115.57 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21326,7 +21083,6 @@
 	)
 	(label "CPU_D4"
 		(at 325.12 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21337,7 +21093,6 @@
 	)
 	(label "GFX_A6"
 		(at 146.05 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21348,7 +21103,6 @@
 	)
 	(label "~{SYS_GPIO1_SEL}"
 		(at 269.875 266.7 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21359,7 +21113,6 @@
 	)
 	(label "BUF_A2"
 		(at 290.83 261.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21370,7 +21123,6 @@
 	)
 	(label "GFX_A10"
 		(at 193.04 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21381,7 +21133,6 @@
 	)
 	(label "GFX_~{CAS_0}"
 		(at 78.74 177.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21392,7 +21143,6 @@
 	)
 	(label "BUF_D4"
 		(at 445.77 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21403,7 +21153,6 @@
 	)
 	(label "GFX_D7"
 		(at 323.85 190.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21414,7 +21163,6 @@
 	)
 	(label "CPU_A3"
 		(at 400.05 201.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21425,7 +21173,6 @@
 	)
 	(label "CPU_A6"
 		(at 146.05 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21436,7 +21183,6 @@
 	)
 	(label "BUF_D4"
 		(at 271.145 306.07 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21447,7 +21193,6 @@
 	)
 	(label "GFX_BUSY"
 		(at 105.41 149.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21458,7 +21203,6 @@
 	)
 	(label "CPU_~{DACK0}"
 		(at 83.82 242.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21469,7 +21213,6 @@
 	)
 	(label "GFX_A7"
 		(at 143.51 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21480,7 +21223,6 @@
 	)
 	(label "BUF_D5"
 		(at 350.52 269.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21491,7 +21233,6 @@
 	)
 	(label "BUF_D6"
 		(at 350.52 271.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21502,7 +21243,6 @@
 	)
 	(label "USB_MAIN_D+"
 		(at 64.77 257.81 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21513,7 +21253,6 @@
 	)
 	(label "CPU_D0"
 		(at 325.12 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21524,7 +21263,6 @@
 	)
 	(label "GFX_D1"
 		(at 323.85 175.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21535,7 +21273,6 @@
 	)
 	(label "BUF_A0"
 		(at 358.14 354.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21546,7 +21283,6 @@
 	)
 	(label "BUF_A0"
 		(at 140.97 325.12 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21557,7 +21293,6 @@
 	)
 	(label "VIDEO_HPD"
 		(at 25.4 170.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21568,7 +21303,6 @@
 	)
 	(label "VIDEO_DDC_SCL"
 		(at 83.82 224.79 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21579,7 +21313,6 @@
 	)
 	(label "BUF_A3"
 		(at 290.83 264.16 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21590,7 +21323,6 @@
 	)
 	(label "BUF_D2"
 		(at 445.77 107.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21601,7 +21333,6 @@
 	)
 	(label "BUF_~{RD}"
 		(at 316.23 320.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21612,7 +21343,6 @@
 	)
 	(label "BUF_A[0..20]"
 		(at 140.97 278.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21623,7 +21353,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 225.425 303.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21634,7 +21363,6 @@
 	)
 	(label "PWR_ON"
 		(at 500.38 314.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21645,7 +21373,6 @@
 	)
 	(label "CPU_A10"
 		(at 193.04 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21656,7 +21383,6 @@
 	)
 	(label "BUF_A21"
 		(at 299.72 354.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21665,9 +21391,18 @@
 		)
 		(uuid "cba013cd-f06b-4116-8349-ea8604ca0a57")
 	)
+	(label "BUF_NREN"
+		(at 226.06 321.31 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cc710af5-2f41-4b5b-a169-ae3a5d995ca6")
+	)
 	(label "~{MIO_SEL}"
 		(at 140.97 233.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21678,7 +21413,6 @@
 	)
 	(label "GFX_A9"
 		(at 175.26 243.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21689,7 +21423,6 @@
 	)
 	(label "BUF_A17"
 		(at 290.83 299.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21700,7 +21433,6 @@
 	)
 	(label "~{IO_SEL}"
 		(at 298.45 379.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21711,7 +21443,6 @@
 	)
 	(label "BUF_CAS"
 		(at 328.93 354.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21722,7 +21453,6 @@
 	)
 	(label "BUF_A21"
 		(at 441.96 274.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21733,7 +21463,6 @@
 	)
 	(label "CPU_A1"
 		(at 400.05 313.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21744,7 +21473,6 @@
 	)
 	(label "CPU_D5"
 		(at 325.12 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21755,7 +21483,6 @@
 	)
 	(label "BUF_DIR"
 		(at 440.69 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21766,7 +21493,6 @@
 	)
 	(label "GFX_D2"
 		(at 252.73 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21777,7 +21503,6 @@
 	)
 	(label "CPU_D5"
 		(at 400.05 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21788,7 +21513,6 @@
 	)
 	(label "CPU_~{DACK1}"
 		(at 40.64 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21799,7 +21523,6 @@
 	)
 	(label "ISA_CH_CK"
 		(at 86.36 273.05 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21810,7 +21533,6 @@
 	)
 	(label "I2C_SCL"
 		(at 83.82 232.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21821,7 +21543,6 @@
 	)
 	(label "BUF_A13"
 		(at 441.96 313.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21832,7 +21553,6 @@
 	)
 	(label "CPU_D1"
 		(at 400.05 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21843,7 +21563,6 @@
 	)
 	(label "~{GFX_SEL}"
 		(at 260.985 372.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21854,7 +21573,6 @@
 	)
 	(label "GFX_D5"
 		(at 323.85 185.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21865,7 +21583,6 @@
 	)
 	(label "BUF_A15"
 		(at 441.96 316.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21876,7 +21593,6 @@
 	)
 	(label "CPU_~{CAS_0}"
 		(at 95.25 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21887,7 +21603,6 @@
 	)
 	(label "CPU_D4"
 		(at 245.11 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21898,7 +21613,6 @@
 	)
 	(label "GFX_A0"
 		(at 161.29 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21909,7 +21623,6 @@
 	)
 	(label "CPU_D3"
 		(at 325.12 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21920,7 +21633,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 225.425 316.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21931,7 +21643,6 @@
 	)
 	(label "CPU_D7"
 		(at 325.12 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21942,7 +21653,6 @@
 	)
 	(label "BUF_D6"
 		(at 271.145 300.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21953,7 +21663,6 @@
 	)
 	(label "CPU_A6"
 		(at 400.05 323.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21964,7 +21673,6 @@
 	)
 	(label "BUF_D5"
 		(at 472.44 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21975,7 +21683,6 @@
 	)
 	(label "CPU_~{DACK3}"
 		(at 396.24 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21986,7 +21693,6 @@
 	)
 	(label "GFX_~{CAS_1}"
 		(at 200.66 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21997,7 +21703,6 @@
 	)
 	(label "BUF_A10"
 		(at 443.23 149.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22008,7 +21713,6 @@
 	)
 	(label "~{SYS_GPIO2_SEL}"
 		(at 226.06 323.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22019,7 +21723,6 @@
 	)
 	(label "GFX_~{BUSY}"
 		(at 76.2 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22030,7 +21733,6 @@
 	)
 	(label "GFX_D[0..7]"
 		(at 78.74 193.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22041,7 +21743,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 225.425 308.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22052,7 +21753,6 @@
 	)
 	(label "BUF_A0"
 		(at 443.23 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22063,7 +21763,6 @@
 	)
 	(label "CPU_DRQ2"
 		(at 86.36 290.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22074,7 +21773,6 @@
 	)
 	(label "BUF_D4"
 		(at 269.875 246.38 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22085,7 +21783,6 @@
 	)
 	(label "I2C_SCL"
 		(at 25.4 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22096,7 +21793,6 @@
 	)
 	(label "BUF_A10"
 		(at 290.83 281.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22107,7 +21803,6 @@
 	)
 	(label "BUF_A8"
 		(at 290.83 276.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22118,7 +21813,6 @@
 	)
 	(label "BUF_D2"
 		(at 271.145 311.15 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22129,7 +21823,6 @@
 	)
 	(label "VIDEO_DDC_SDA"
 		(at 25.4 177.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22140,7 +21833,6 @@
 	)
 	(label "BUF_D5"
 		(at 269.875 259.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22151,7 +21843,6 @@
 	)
 	(label "CPU_D1"
 		(at 325.12 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22162,7 +21853,6 @@
 	)
 	(label "BUF_D7"
 		(at 350.52 274.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22173,7 +21863,6 @@
 	)
 	(label "CPU_D2"
 		(at 252.73 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22184,7 +21873,6 @@
 	)
 	(label "I2C_SDA"
 		(at 83.82 234.95 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22195,7 +21883,6 @@
 	)
 	(label "CPU_A5"
 		(at 400.05 318.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22206,7 +21893,6 @@
 	)
 	(label "CPU_A2"
 		(at 400.05 328.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22217,7 +21903,6 @@
 	)
 	(label "BUF_D[0..7]"
 		(at 140.97 251.46 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22228,7 +21913,6 @@
 	)
 	(label "~{MIO_SEL}"
 		(at 260.985 379.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22237,9 +21921,18 @@
 		)
 		(uuid "f40cfd8b-ce2d-4b34-9e83-3af4cf83aff4")
 	)
+	(label "BOOT SELECT"
+		(at 213.36 298.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f46438b3-90f6-42e9-be0e-f9b5daf65c37")
+	)
 	(label "CPU_~{DACK}"
 		(at 464.82 40.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22250,7 +21943,6 @@
 	)
 	(label "CPU_D7"
 		(at 237.49 92.71 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22261,7 +21953,6 @@
 	)
 	(label "BUF_~{WE}"
 		(at 443.23 154.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22272,7 +21963,6 @@
 	)
 	(label "CPU_TC"
 		(at 44.45 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22283,7 +21973,6 @@
 	)
 	(label "CPU_~{CAS_1}"
 		(at 398.78 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22294,7 +21983,6 @@
 	)
 	(label "PWR_IN"
 		(at 477.52 269.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22305,7 +21993,6 @@
 	)
 	(label "BUF_A11"
 		(at 443.23 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22316,7 +22003,6 @@
 	)
 	(label "CPU_A7"
 		(at 400.05 321.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22327,7 +22013,6 @@
 	)
 	(label "GFX_A3"
 		(at 153.67 142.24 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22338,7 +22023,6 @@
 	)
 	(label "CPU_DRQ1"
 		(at 40.64 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22349,7 +22033,6 @@
 	)
 	(label "BUF_D3"
 		(at 445.77 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22360,7 +22043,6 @@
 	)
 	(label "CPU_~{NREN}"
 		(at 95.25 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22371,7 +22053,6 @@
 	)
 	(label "CPU_A9"
 		(at 398.78 149.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22382,7 +22063,6 @@
 	)
 	(label "~{SYS_GPIO2_SEL}"
 		(at 260.985 377.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -39324,16 +39004,6 @@
 				(justify right)
 			)
 			(uuid "9a3ebf64-e529-4150-a3aa-b27d18bbd248")
-		)
-		(pin "ISA_DACK" input
-			(at 128.27 298.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "8a058049-880d-42c4-a8ea-8c008573dc69")
 		)
 		(instances
 			(project "a1_micro_atx"

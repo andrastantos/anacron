@@ -6930,7 +6930,6 @@
 	)
 	(label "TMDS_CLK+"
 		(at 130.81 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6941,7 +6940,6 @@
 	)
 	(label "A6"
 		(at 57.15 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6952,7 +6950,6 @@
 	)
 	(label "CODEC_V3P3"
 		(at 91.44 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6963,7 +6960,6 @@
 	)
 	(label "D6"
 		(at 57.15 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6974,7 +6970,6 @@
 	)
 	(label "AUDIO_SDATA_OUT"
 		(at 120.65 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6985,7 +6980,6 @@
 	)
 	(label "A7"
 		(at 57.15 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6996,7 +6990,6 @@
 	)
 	(label "A2"
 		(at 57.15 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7007,7 +7000,6 @@
 	)
 	(label "TMDS_D0-"
 		(at 130.81 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7018,7 +7010,6 @@
 	)
 	(label "AUDIO_SFRM"
 		(at 87.63 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7029,7 +7020,6 @@
 	)
 	(label "A4"
 		(at 57.15 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7040,7 +7030,6 @@
 	)
 	(label "TMDS_CLK-"
 		(at 130.81 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7051,7 +7040,6 @@
 	)
 	(label "A3"
 		(at 57.15 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7062,7 +7050,6 @@
 	)
 	(label "D7"
 		(at 57.15 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7073,7 +7060,6 @@
 	)
 	(label "A5"
 		(at 57.15 60.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7084,7 +7070,6 @@
 	)
 	(label "A1"
 		(at 57.15 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7095,7 +7080,6 @@
 	)
 	(label "D1"
 		(at 57.15 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7106,7 +7090,6 @@
 	)
 	(label "D2"
 		(at 57.15 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7117,7 +7100,6 @@
 	)
 	(label "AUDIO_SFRM"
 		(at 120.65 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7128,7 +7110,6 @@
 	)
 	(label "TMDS_D2+"
 		(at 130.81 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7139,7 +7120,6 @@
 	)
 	(label "AUDIO_SDATA_IN"
 		(at 120.65 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7150,7 +7130,6 @@
 	)
 	(label "HP_DET"
 		(at 215.9 134.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7161,7 +7140,6 @@
 	)
 	(label "HP_DET"
 		(at 81.28 179.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7172,7 +7150,6 @@
 	)
 	(label "D3"
 		(at 57.15 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7183,7 +7160,6 @@
 	)
 	(label "TMDS_D2-"
 		(at 130.81 60.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7194,7 +7170,6 @@
 	)
 	(label "AUDIO_SDATA_IN"
 		(at 87.63 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7205,7 +7180,6 @@
 	)
 	(label "TMDS_D1+"
 		(at 130.81 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7216,7 +7190,6 @@
 	)
 	(label "LINE_IN_DET"
 		(at 81.28 181.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7227,7 +7200,6 @@
 	)
 	(label "A0"
 		(at 57.15 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7238,7 +7210,6 @@
 	)
 	(label "TMDS_D1-"
 		(at 130.81 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7249,7 +7220,6 @@
 	)
 	(label "A8"
 		(at 57.15 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7260,7 +7230,6 @@
 	)
 	(label "CODEC_V3P3"
 		(at 146.05 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7271,7 +7240,6 @@
 	)
 	(label "D0"
 		(at 57.15 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7282,7 +7250,6 @@
 	)
 	(label "D5"
 		(at 57.15 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7293,7 +7260,6 @@
 	)
 	(label "TMDS_D0+"
 		(at 130.81 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7304,7 +7270,6 @@
 	)
 	(label "AUDIO_SDATA_OUT"
 		(at 87.63 143.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7315,7 +7280,6 @@
 	)
 	(label "CODEC_V3P3"
 		(at 148.59 153.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7326,7 +7290,6 @@
 	)
 	(label "LINE_IN_DET"
 		(at 38.1 166.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7337,7 +7300,6 @@
 	)
 	(label "D4"
 		(at 57.15 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7415,7 +7377,6 @@
 	(hierarchical_label "VIDEO_HPD"
 		(shape bidirectional)
 		(at 176.53 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7427,7 +7388,6 @@
 	(hierarchical_label "~{REG_SEL}"
 		(shape input)
 		(at 31.75 25.4 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7439,7 +7399,6 @@
 	(hierarchical_label "~{BUSY}"
 		(shape output)
 		(at 138.43 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7451,7 +7410,6 @@
 	(hierarchical_label "VIDEO_DDC_SCL"
 		(shape bidirectional)
 		(at 176.53 88.9 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7463,7 +7421,6 @@
 	(hierarchical_label "CODEC_SCL"
 		(shape bidirectional)
 		(at 93.98 130.81 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7475,7 +7432,6 @@
 	(hierarchical_label "~{WE}"
 		(shape bidirectional)
 		(at 31.75 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7487,7 +7443,6 @@
 	(hierarchical_label "~{INT}"
 		(shape output)
 		(at 138.43 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7499,7 +7454,6 @@
 	(hierarchical_label "~{CAS_0}"
 		(shape output)
 		(at 31.75 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7511,7 +7465,6 @@
 	(hierarchical_label "CODEC_SDA"
 		(shape bidirectional)
 		(at 93.98 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7523,7 +7476,6 @@
 	(hierarchical_label "~{CAS_1}"
 		(shape output)
 		(at 31.75 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7535,7 +7487,6 @@
 	(hierarchical_label "VIDEO_DDC_SDA"
 		(shape bidirectional)
 		(at 176.53 91.44 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7547,7 +7498,6 @@
 	(hierarchical_label "D[0..7]"
 		(shape bidirectional)
 		(at 31.75 76.2 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7559,7 +7509,6 @@
 	(hierarchical_label "A[0..8]"
 		(shape output)
 		(at 31.75 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7571,7 +7520,6 @@
 	(hierarchical_label "~{RAS_A}"
 		(shape output)
 		(at 31.75 30.48 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

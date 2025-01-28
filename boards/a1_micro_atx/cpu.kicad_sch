@@ -1891,7 +1891,6 @@
 	)
 	(label "D0"
 		(at 66.04 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1902,7 +1901,6 @@
 	)
 	(label "A8"
 		(at 66.04 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1913,7 +1911,6 @@
 	)
 	(label "D4"
 		(at 66.04 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1924,7 +1921,6 @@
 	)
 	(label "A3"
 		(at 66.04 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1935,7 +1931,6 @@
 	)
 	(label "A5"
 		(at 66.04 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1946,7 +1941,6 @@
 	)
 	(label "A6"
 		(at 66.04 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1957,7 +1951,6 @@
 	)
 	(label "A0"
 		(at 66.04 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1968,7 +1961,6 @@
 	)
 	(label "D6"
 		(at 66.04 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1979,7 +1971,6 @@
 	)
 	(label "A10"
 		(at 66.04 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1990,7 +1981,6 @@
 	)
 	(label "D2"
 		(at 66.04 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2001,7 +1991,6 @@
 	)
 	(label "A9"
 		(at 66.04 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2012,7 +2001,6 @@
 	)
 	(label "A7"
 		(at 66.04 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2023,7 +2011,6 @@
 	)
 	(label "D3"
 		(at 66.04 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2034,7 +2021,6 @@
 	)
 	(label "D1"
 		(at 66.04 114.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2045,7 +2031,6 @@
 	)
 	(label "A4"
 		(at 66.04 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2056,7 +2041,6 @@
 	)
 	(label "A2"
 		(at 66.04 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2067,7 +2051,6 @@
 	)
 	(label "D7"
 		(at 66.04 129.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2078,7 +2061,6 @@
 	)
 	(label "D5"
 		(at 66.04 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2089,7 +2071,6 @@
 	)
 	(label "A1"
 		(at 66.04 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2145,7 +2126,6 @@
 	(hierarchical_label "D[0..7]"
 		(shape bidirectional)
 		(at 40.64 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2157,7 +2137,6 @@
 	(hierarchical_label "~{NREN}"
 		(shape output)
 		(at 40.64 53.34 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2169,7 +2148,6 @@
 	(hierarchical_label "A[0..10]"
 		(shape output)
 		(at 40.64 78.74 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2181,7 +2159,6 @@
 	(hierarchical_label "DRQ_2"
 		(shape input)
 		(at 147.32 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2193,7 +2170,6 @@
 	(hierarchical_label "~{DACK_2}"
 		(shape output)
 		(at 147.32 109.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2205,7 +2181,6 @@
 	(hierarchical_label "DRQ_0"
 		(shape input)
 		(at 147.32 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2217,7 +2192,6 @@
 	(hierarchical_label "~{INT}"
 		(shape input)
 		(at 147.32 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2229,7 +2203,6 @@
 	(hierarchical_label "~{DACK_3}"
 		(shape output)
 		(at 147.32 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2241,7 +2214,6 @@
 	(hierarchical_label "~{CAS_0}"
 		(shape output)
 		(at 40.64 66.04 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2253,7 +2225,6 @@
 	(hierarchical_label "~{DACK_1}"
 		(shape output)
 		(at 147.32 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2265,7 +2236,6 @@
 	(hierarchical_label "~{RAS_A}"
 		(shape output)
 		(at 40.64 58.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2277,7 +2247,6 @@
 	(hierarchical_label "~{WAIT}"
 		(shape input)
 		(at 40.64 76.2 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2289,7 +2258,6 @@
 	(hierarchical_label "DRQ_3"
 		(shape input)
 		(at 147.32 114.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2301,7 +2269,6 @@
 	(hierarchical_label "DMA_TC"
 		(shape output)
 		(at 147.32 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2313,7 +2280,6 @@
 	(hierarchical_label "~{WE}"
 		(shape output)
 		(at 40.64 73.66 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2325,7 +2291,6 @@
 	(hierarchical_label "~{DACK_0}"
 		(shape output)
 		(at 147.32 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2337,7 +2302,6 @@
 	(hierarchical_label "~{RAS_B}"
 		(shape output)
 		(at 40.64 60.96 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2349,7 +2313,6 @@
 	(hierarchical_label "~{CAS_1}"
 		(shape output)
 		(at 40.64 68.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2361,7 +2324,6 @@
 	(hierarchical_label "DRQ_1"
 		(shape input)
 		(at 147.32 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

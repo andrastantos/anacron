@@ -16208,7 +16208,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 240.03 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16219,7 +16218,6 @@
 	)
 	(label "ISA_IRQ10"
 		(at 240.03 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16230,7 +16228,6 @@
 	)
 	(label "ISA_A[0..20]"
 		(at 111.76 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16241,7 +16238,6 @@
 	)
 	(label "~{ISA_DACK1}"
 		(at 146.05 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16252,7 +16248,6 @@
 	)
 	(label "ISA_~{SBHE}"
 		(at 294.64 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16263,7 +16258,6 @@
 	)
 	(label "ISA_A3"
 		(at 382.27 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16274,7 +16268,6 @@
 	)
 	(label "ISA_D11"
 		(at 294.64 143.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16285,7 +16278,6 @@
 	)
 	(label "ISA_D1"
 		(at 116.84 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16296,7 +16288,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 240.03 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16307,7 +16298,6 @@
 	)
 	(label "ISA_TGR16"
 		(at 308.61 223.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16318,7 +16308,6 @@
 	)
 	(label "ISA_D15"
 		(at 294.64 153.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16329,7 +16318,6 @@
 	)
 	(label "~{ISA_DACK0}"
 		(at 146.05 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16340,7 +16328,6 @@
 	)
 	(label "ISA_D11"
 		(at 214.63 148.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16351,7 +16338,6 @@
 	)
 	(label "ISA_D9"
 		(at 294.64 138.43 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16362,7 +16348,6 @@
 	)
 	(label "ISA_OSC"
 		(at 327.66 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16373,7 +16358,6 @@
 	)
 	(label "ISA_D9"
 		(at 214.63 143.51 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16384,7 +16368,6 @@
 	)
 	(label "D0"
 		(at 177.8 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16395,7 +16378,6 @@
 	)
 	(label "ISA_OSC"
 		(at 146.05 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16406,7 +16388,6 @@
 	)
 	(label "ISA_DRQ2"
 		(at 327.66 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16417,7 +16398,6 @@
 	)
 	(label "~{ISA_DACK1}"
 		(at 240.03 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16428,7 +16408,6 @@
 	)
 	(label "ISA_D6"
 		(at 294.64 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16439,7 +16418,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 116.84 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16450,7 +16428,6 @@
 	)
 	(label "ISA_D9"
 		(at 382.27 138.43 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16461,7 +16438,6 @@
 	)
 	(label "ISA_A19"
 		(at 200.66 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16472,7 +16448,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 146.05 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16483,7 +16458,6 @@
 	)
 	(label "ISA_DRQ0"
 		(at 327.66 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16494,7 +16468,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 240.03 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16505,7 +16478,6 @@
 	)
 	(label "~{ISA_IOR}"
 		(at 120.015 202.565 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16516,7 +16488,6 @@
 	)
 	(label "ISA_-12V"
 		(at 327.66 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16527,7 +16498,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 240.03 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16538,7 +16508,6 @@
 	)
 	(label "ISA_DRQ6"
 		(at 327.66 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16549,7 +16518,6 @@
 	)
 	(label "ISA_A15"
 		(at 382.27 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16560,7 +16528,6 @@
 	)
 	(label "ISA_AEN"
 		(at 200.66 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16571,7 +16538,6 @@
 	)
 	(label "~{ISA_IOR}"
 		(at 62.23 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16582,7 +16548,6 @@
 	)
 	(label "ISA_~{IOCS16}"
 		(at 262.89 208.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16593,7 +16558,6 @@
 	)
 	(label "ISA_A11"
 		(at 200.66 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16604,7 +16568,6 @@
 	)
 	(label "ISA_IRQ15"
 		(at 240.03 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16615,7 +16578,6 @@
 	)
 	(label "ISA_DRQ1"
 		(at 327.66 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16626,7 +16588,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 62.23 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16637,7 +16598,6 @@
 	)
 	(label "ISA_A2"
 		(at 294.64 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16648,7 +16608,6 @@
 	)
 	(label "ISA_IRQ14"
 		(at 239.9752 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16659,7 +16618,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 327.66 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16670,7 +16628,6 @@
 	)
 	(label "ISA_A14"
 		(at 116.84 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16681,7 +16638,6 @@
 	)
 	(label "ISA_A2"
 		(at 200.66 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16692,7 +16648,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 146.05 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16703,7 +16658,6 @@
 	)
 	(label "~{ISA_0WS}"
 		(at 240.03 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16714,7 +16668,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 115.57 148.59 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16725,7 +16678,6 @@
 	)
 	(label "ISA_RST"
 		(at 240.03 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16736,7 +16688,6 @@
 	)
 	(label "ISA_A19"
 		(at 382.27 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16747,7 +16698,6 @@
 	)
 	(label "ISA_A17"
 		(at 200.66 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16758,7 +16708,6 @@
 	)
 	(label "ISA_A8"
 		(at 200.66 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16769,7 +16718,6 @@
 	)
 	(label "ISA_D15"
 		(at 214.63 158.75 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16780,7 +16728,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 327.66 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16791,7 +16738,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 382.27 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16802,7 +16748,6 @@
 	)
 	(label "ISA_A15"
 		(at 200.66 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16813,7 +16758,6 @@
 	)
 	(label "ISA_A3"
 		(at 116.84 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16824,7 +16768,6 @@
 	)
 	(label "~{ISA_IOW}"
 		(at 120.015 200.025 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16835,7 +16778,6 @@
 	)
 	(label "ISA_D0"
 		(at 294.64 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16846,7 +16788,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 115.57 170.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16857,7 +16798,6 @@
 	)
 	(label "ISA_A1"
 		(at 382.27 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16868,7 +16808,6 @@
 	)
 	(label "ISA_-12V"
 		(at 146.05 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16879,7 +16818,6 @@
 	)
 	(label "ISA_D13"
 		(at 214.63 153.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16890,7 +16828,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 327.66 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16901,7 +16838,6 @@
 	)
 	(label "ISA_D14"
 		(at 294.64 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16912,7 +16848,6 @@
 	)
 	(label "ISA_+12V"
 		(at 240.03 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16923,7 +16858,6 @@
 	)
 	(label "ISA_D10"
 		(at 294.64 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16934,7 +16868,6 @@
 	)
 	(label "ISA_A13"
 		(at 294.64 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16945,7 +16878,6 @@
 	)
 	(label "ISA_A5"
 		(at 294.64 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16956,7 +16888,6 @@
 	)
 	(label "ISA_DRQ0"
 		(at 240.03 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16967,7 +16898,6 @@
 	)
 	(label "~{ISA_0WS}"
 		(at 146.05 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16978,7 +16908,6 @@
 	)
 	(label "ISA_A5"
 		(at 116.84 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16989,7 +16918,6 @@
 	)
 	(label "~{ISA_DACK1}"
 		(at 327.66 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17000,7 +16928,6 @@
 	)
 	(label "ISA_D3"
 		(at 382.27 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17011,7 +16938,6 @@
 	)
 	(label "~{ISA_IOR}"
 		(at 327.66 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17022,7 +16948,6 @@
 	)
 	(label "ISA_A1"
 		(at 200.66 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17033,7 +16958,6 @@
 	)
 	(label "ISA_+12V"
 		(at 146.05 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17044,7 +16968,6 @@
 	)
 	(label "ISA_~{TGR16}"
 		(at 262.89 236.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17055,7 +16978,6 @@
 	)
 	(label "ISA_A4"
 		(at 116.84 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17066,7 +16988,6 @@
 	)
 	(label "ISA_D14"
 		(at 214.63 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17077,7 +16998,6 @@
 	)
 	(label "ISA_IRQ12"
 		(at 240.03 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17088,7 +17008,6 @@
 	)
 	(label "ISA_A0"
 		(at 200.66 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17099,7 +17018,6 @@
 	)
 	(label "ISA_D1"
 		(at 382.27 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17110,7 +17028,6 @@
 	)
 	(label "ISA_D5"
 		(at 200.66 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17121,7 +17038,6 @@
 	)
 	(label "~{ISA_SEL}"
 		(at 262.89 243.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17132,7 +17048,6 @@
 	)
 	(label "ISA_D10"
 		(at 382.27 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17143,7 +17058,6 @@
 	)
 	(label "ISA_AEN"
 		(at 37.465 188.595 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17154,7 +17068,6 @@
 	)
 	(label "ISA_MASTER"
 		(at 240.03 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17165,7 +17078,6 @@
 	)
 	(label "ISA_A0"
 		(at 382.27 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17176,7 +17088,6 @@
 	)
 	(label "ISA_D6"
 		(at 214.63 209.55 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17187,7 +17098,6 @@
 	)
 	(label "D6"
 		(at 177.8 209.55 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17198,7 +17108,6 @@
 	)
 	(label "ISA_D6"
 		(at 200.66 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17209,7 +17118,6 @@
 	)
 	(label "ISA_IRQ14"
 		(at 327.6052 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17220,7 +17128,6 @@
 	)
 	(label "ISA_ALE"
 		(at 62.23 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17231,7 +17138,6 @@
 	)
 	(label "ISA_A17"
 		(at 116.84 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17242,7 +17148,6 @@
 	)
 	(label "ISA_CLK"
 		(at 62.23 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17253,7 +17158,6 @@
 	)
 	(label "ISA_AEN"
 		(at 116.84 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17264,7 +17168,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 327.66 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17275,7 +17178,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 294.64 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17286,7 +17188,6 @@
 	)
 	(label "ISA_D0"
 		(at 116.84 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17297,7 +17198,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 240.03 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17308,7 +17208,6 @@
 	)
 	(label "ISA_A1"
 		(at 116.84 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17319,7 +17218,6 @@
 	)
 	(label "ISA_DRQ2"
 		(at 146.05 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17330,7 +17228,6 @@
 	)
 	(label "ISA_A12"
 		(at 382.27 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17341,7 +17238,6 @@
 	)
 	(label "ISA_A20"
 		(at 262.89 241.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17352,7 +17248,6 @@
 	)
 	(label "ISA_~{MEMCS16}"
 		(at 327.66 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17363,7 +17258,6 @@
 	)
 	(label "ISA_A6"
 		(at 294.64 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17374,7 +17268,6 @@
 	)
 	(label "ISA_IO_CH_CK"
 		(at 60.96 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17385,7 +17278,6 @@
 	)
 	(label "ISA_DRQ1"
 		(at 240.03 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17396,7 +17288,6 @@
 	)
 	(label "ISA_TC"
 		(at 240.03 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17407,7 +17298,6 @@
 	)
 	(label "ISA_D7"
 		(at 214.63 212.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17418,7 +17308,6 @@
 	)
 	(label "ISA_A15"
 		(at 116.84 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17429,7 +17318,6 @@
 	)
 	(label "ISA_IRQ11"
 		(at 327.66 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17440,7 +17328,6 @@
 	)
 	(label "~{ISA_IOR}"
 		(at 146.05 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17451,7 +17338,6 @@
 	)
 	(label "~{ISA_DACK3}"
 		(at 327.66 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17462,7 +17348,6 @@
 	)
 	(label "ISA_A9"
 		(at 200.66 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17473,7 +17358,6 @@
 	)
 	(label "ISA_~{IOCS16}"
 		(at 327.66 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17484,7 +17368,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 115.57 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17495,7 +17378,6 @@
 	)
 	(label "~{ISA_0WS}"
 		(at 327.66 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17506,7 +17388,6 @@
 	)
 	(label "ISA_TC"
 		(at 327.66 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17517,7 +17398,6 @@
 	)
 	(label "ISA_D[0..15]"
 		(at 111.76 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17528,7 +17408,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 115.57 165.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17539,7 +17418,6 @@
 	)
 	(label "ISA_A20"
 		(at 38.735 180.975 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17550,7 +17428,6 @@
 	)
 	(label "~{ISA_DACK3}"
 		(at 240.03 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17561,7 +17438,6 @@
 	)
 	(label "ISA_~{MEMCS16}"
 		(at 262.89 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17572,7 +17448,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 115.57 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17583,7 +17458,6 @@
 	)
 	(label "ISA_D3"
 		(at 294.64 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17594,7 +17468,6 @@
 	)
 	(label "ISA_D1"
 		(at 200.66 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17605,7 +17478,6 @@
 	)
 	(label "ISA_A8"
 		(at 116.84 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17616,7 +17488,6 @@
 	)
 	(label "ISA_D5"
 		(at 116.84 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17627,7 +17498,6 @@
 	)
 	(label "ISA_D1"
 		(at 294.64 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17638,7 +17508,6 @@
 	)
 	(label "~{ISA_DACK2}"
 		(at 146.05 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17649,7 +17518,6 @@
 	)
 	(label "ISA_D8"
 		(at 214.63 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17660,7 +17528,6 @@
 	)
 	(label "ISA_A4"
 		(at 382.27 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17671,7 +17538,6 @@
 	)
 	(label "ISA_CLK"
 		(at 327.66 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17682,7 +17548,6 @@
 	)
 	(label "ISA_D2"
 		(at 294.64 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17693,7 +17558,6 @@
 	)
 	(label "ISA_IOCHRDY"
 		(at 238.76 210.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17704,7 +17568,6 @@
 	)
 	(label "D5"
 		(at 177.8 153.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17715,7 +17578,6 @@
 	)
 	(label "D4"
 		(at 177.8 204.47 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17726,7 +17588,6 @@
 	)
 	(label "ISA_D8"
 		(at 294.64 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17737,7 +17598,6 @@
 	)
 	(label "ISA_D4"
 		(at 382.27 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17748,7 +17608,6 @@
 	)
 	(label "ISA_ALE"
 		(at 120.65 219.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17759,7 +17618,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 146.05 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17770,7 +17628,6 @@
 	)
 	(label "ISA_+12V"
 		(at 62.23 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17781,7 +17638,6 @@
 	)
 	(label "ISA_DRQ7"
 		(at 327.66 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17792,7 +17648,6 @@
 	)
 	(label "ISA_~{CSL}"
 		(at 179.07 219.71 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17803,7 +17658,6 @@
 	)
 	(label "ISA_ALE"
 		(at 327.66 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17814,7 +17668,6 @@
 	)
 	(label "ISA_A11"
 		(at 294.64 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17825,7 +17678,6 @@
 	)
 	(label "ISA_A16"
 		(at 294.64 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17836,7 +17688,6 @@
 	)
 	(label "ISA_DRQ3"
 		(at 146.05 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17847,7 +17698,6 @@
 	)
 	(label "~{ISA_DACK2}"
 		(at 240.03 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17858,7 +17708,6 @@
 	)
 	(label "ISA_~{IOCS16}"
 		(at 240.03 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17869,7 +17718,6 @@
 	)
 	(label "ISA_A13"
 		(at 200.66 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17880,7 +17728,6 @@
 	)
 	(label "ISA_D14"
 		(at 382.27 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17891,7 +17738,6 @@
 	)
 	(label "ISA_D7"
 		(at 294.64 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17902,7 +17748,6 @@
 	)
 	(label "ISA_D0"
 		(at 214.63 194.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17913,7 +17758,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 238.76 218.44 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17924,7 +17768,6 @@
 	)
 	(label "ISA_D4"
 		(at 214.63 204.47 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17935,7 +17778,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 382.27 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17946,7 +17788,6 @@
 	)
 	(label "ISA_IOCHRDY"
 		(at 294.64 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17957,7 +17798,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 115.57 167.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17968,7 +17808,6 @@
 	)
 	(label "ISA_A10"
 		(at 294.64 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17979,7 +17818,6 @@
 	)
 	(label "ISA_IO_CH_CK"
 		(at 81.28 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17990,7 +17828,6 @@
 	)
 	(label "D2"
 		(at 177.8 199.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18001,7 +17838,6 @@
 	)
 	(label "~{ISA_0WS}"
 		(at 238.76 213.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18012,7 +17848,6 @@
 	)
 	(label "ISA_DRQ3"
 		(at 240.03 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18023,7 +17858,6 @@
 	)
 	(label "ISA_A18"
 		(at 116.84 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18034,7 +17868,6 @@
 	)
 	(label "ISA_A8"
 		(at 294.64 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18045,7 +17878,6 @@
 	)
 	(label "~{ISA_DACK0}"
 		(at 238.76 215.9 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18056,7 +17888,6 @@
 	)
 	(label "ISA_D13"
 		(at 382.27 148.59 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18067,7 +17898,6 @@
 	)
 	(label "ISA_D5"
 		(at 214.63 207.01 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18078,7 +17908,6 @@
 	)
 	(label "D0"
 		(at 177.8 194.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18089,7 +17918,6 @@
 	)
 	(label "ISA_D2"
 		(at 382.27 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18100,7 +17928,6 @@
 	)
 	(label "~{WE}"
 		(at 173.99 163.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18111,7 +17938,6 @@
 	)
 	(label "ISA_D15"
 		(at 382.27 153.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18122,7 +17948,6 @@
 	)
 	(label "~{ISA_0WS}"
 		(at 62.23 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18133,7 +17958,6 @@
 	)
 	(label "ISA_A17"
 		(at 294.64 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18144,7 +17968,6 @@
 	)
 	(label "ISA_D2"
 		(at 214.63 199.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18155,7 +17978,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 146.05 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18166,7 +17988,6 @@
 	)
 	(label "ISA_A9"
 		(at 116.84 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18177,7 +17998,6 @@
 	)
 	(label "ISA_~{CSH}"
 		(at 179.07 166.37 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18188,7 +18008,6 @@
 	)
 	(label "ISA_A10"
 		(at 116.84 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18199,7 +18018,6 @@
 	)
 	(label "ISA_D3"
 		(at 116.84 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18210,7 +18028,6 @@
 	)
 	(label "ISA_A12"
 		(at 294.64 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18221,7 +18038,6 @@
 	)
 	(label "ISA_D12"
 		(at 294.64 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18232,7 +18048,6 @@
 	)
 	(label "~{ISA_IOW}"
 		(at 62.23 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18243,7 +18058,6 @@
 	)
 	(label "D2"
 		(at 177.8 146.05 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18254,7 +18068,6 @@
 	)
 	(label "~{ISA_DACK3}"
 		(at 146.05 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18265,7 +18078,6 @@
 	)
 	(label "ISA_A9"
 		(at 382.27 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18276,7 +18088,6 @@
 	)
 	(label "ISA_IOCHRDY"
 		(at 116.84 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18287,7 +18098,6 @@
 	)
 	(label "ISA_CSH"
 		(at 364.49 203.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18298,7 +18108,6 @@
 	)
 	(label "ISA_D12"
 		(at 214.63 151.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18309,7 +18118,6 @@
 	)
 	(label "ISA_DRQ2"
 		(at 62.23 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18320,7 +18128,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 120.015 194.945 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18331,7 +18138,6 @@
 	)
 	(label "ISA_A1"
 		(at 294.64 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18342,7 +18148,6 @@
 	)
 	(label "D1"
 		(at 177.8 143.51 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18353,7 +18158,6 @@
 	)
 	(label "ISA_DRQ3"
 		(at 327.66 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18364,7 +18168,6 @@
 	)
 	(label "~{ISA_DACK3}"
 		(at 62.23 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18375,7 +18178,6 @@
 	)
 	(label "ISA_A7"
 		(at 382.27 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18386,7 +18188,6 @@
 	)
 	(label "D7"
 		(at 177.8 212.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18397,7 +18198,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 146.05 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18408,7 +18208,6 @@
 	)
 	(label "ISA_DRQ2"
 		(at 240.03 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18419,7 +18218,6 @@
 	)
 	(label "ISA_IRQ10"
 		(at 327.66 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18430,7 +18228,6 @@
 	)
 	(label "ISA_~{TGR16}"
 		(at 307.34 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18441,7 +18238,6 @@
 	)
 	(label "~{ISA_IOR}"
 		(at 240.03 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18452,7 +18248,6 @@
 	)
 	(label "ISA_A5"
 		(at 200.66 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18463,7 +18258,6 @@
 	)
 	(label "ISA_A16"
 		(at 382.27 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18474,7 +18268,6 @@
 	)
 	(label "ISA_A19"
 		(at 116.84 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18485,7 +18278,6 @@
 	)
 	(label "D5"
 		(at 177.8 207.01 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18496,7 +18288,6 @@
 	)
 	(label "ISA_DRQ1"
 		(at 62.23 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18507,7 +18298,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 240.03 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18518,7 +18308,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 327.66 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18529,7 +18318,6 @@
 	)
 	(label "ISA_DRQ5"
 		(at 327.66 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18540,7 +18328,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 62.23 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18551,7 +18338,6 @@
 	)
 	(label "ISA_RST"
 		(at 62.23 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18562,7 +18348,6 @@
 	)
 	(label "ISA_A3"
 		(at 294.64 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18573,7 +18358,6 @@
 	)
 	(label "D3"
 		(at 177.8 148.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18584,7 +18368,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 382.27 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18595,7 +18378,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 146.05 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18606,7 +18388,6 @@
 	)
 	(label "ISA_A18"
 		(at 200.66 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18617,7 +18398,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 62.23 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18628,7 +18408,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 62.23 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18639,7 +18418,6 @@
 	)
 	(label "ISA_CLK"
 		(at 146.05 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18650,7 +18428,6 @@
 	)
 	(label "ISA_-5V"
 		(at 146.05 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18661,7 +18438,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 115.57 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18672,7 +18448,6 @@
 	)
 	(label "ISA_A12"
 		(at 116.84 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18683,7 +18458,6 @@
 	)
 	(label "ISA_MASTER"
 		(at 327.66 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18694,7 +18468,6 @@
 	)
 	(label "ISA_A6"
 		(at 382.27 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18705,7 +18478,6 @@
 	)
 	(label "~{WE}"
 		(at 173.99 217.17 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18716,7 +18488,6 @@
 	)
 	(label "~{ISA_DACK1}"
 		(at 62.23 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18727,7 +18498,6 @@
 	)
 	(label "ISA_D3"
 		(at 214.63 201.93 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18738,7 +18508,6 @@
 	)
 	(label "ISA_A14"
 		(at 382.27 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18749,7 +18518,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 62.23 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18760,7 +18528,6 @@
 	)
 	(label "ISA_A0"
 		(at 116.84 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18771,7 +18538,6 @@
 	)
 	(label "ISA_DRQ5"
 		(at 240.03 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18782,7 +18548,6 @@
 	)
 	(label "ISA_D3"
 		(at 200.66 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18793,7 +18558,6 @@
 	)
 	(label "ISA_TC"
 		(at 62.23 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18804,7 +18568,6 @@
 	)
 	(label "ISA_D5"
 		(at 294.64 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18815,7 +18578,6 @@
 	)
 	(label "ISA_A4"
 		(at 200.66 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18826,7 +18588,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 327.66 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18837,7 +18598,6 @@
 	)
 	(label "ISA_A7"
 		(at 200.66 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18848,7 +18608,6 @@
 	)
 	(label "ISA_D4"
 		(at 200.66 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18859,7 +18618,6 @@
 	)
 	(label "ISA_TC"
 		(at 146.05 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18870,7 +18628,6 @@
 	)
 	(label "ISA_OSC"
 		(at 62.23 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18881,7 +18638,6 @@
 	)
 	(label "ISA_DRQ1"
 		(at 146.05 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18892,7 +18648,6 @@
 	)
 	(label "D3"
 		(at 177.8 201.93 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18903,7 +18658,6 @@
 	)
 	(label "ISA_D2"
 		(at 116.84 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18914,7 +18668,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 327.66 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18925,7 +18678,6 @@
 	)
 	(label "ISA_A14"
 		(at 200.66 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18936,7 +18688,6 @@
 	)
 	(label "ISA_A6"
 		(at 200.66 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18947,7 +18698,6 @@
 	)
 	(label "~{ISA_MEMR}"
 		(at 120.015 197.485 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18958,7 +18708,6 @@
 	)
 	(label "~{ISA_DACK2}"
 		(at 327.66 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18969,7 +18718,6 @@
 	)
 	(label "~{ISA_IOW}"
 		(at 146.05 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18980,7 +18728,6 @@
 	)
 	(label "ISA_A10"
 		(at 200.66 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18991,7 +18738,6 @@
 	)
 	(label "ISA_A8"
 		(at 382.27 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19002,7 +18748,6 @@
 	)
 	(label "D6"
 		(at 177.8 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19013,7 +18758,6 @@
 	)
 	(label "~{ISA_IOW}"
 		(at 327.66 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19024,7 +18768,6 @@
 	)
 	(label "ISA_AEN"
 		(at 294.64 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19035,7 +18778,6 @@
 	)
 	(label "ISA_CLK"
 		(at 240.03 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19046,7 +18788,6 @@
 	)
 	(label "ISA_+12V"
 		(at 327.66 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19057,7 +18798,6 @@
 	)
 	(label "~{ISA_DACK0}"
 		(at 327.66 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19068,7 +18808,6 @@
 	)
 	(label "ISA_IRQ6"
 		(at 62.23 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19079,7 +18818,6 @@
 	)
 	(label "ISA_IRQ3"
 		(at 62.23 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19090,7 +18828,6 @@
 	)
 	(label "~{ISA_IOW}"
 		(at 240.03 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19101,7 +18838,6 @@
 	)
 	(label "ISA_D5"
 		(at 382.27 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19112,7 +18848,6 @@
 	)
 	(label "ISA_D11"
 		(at 382.27 143.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19123,7 +18858,6 @@
 	)
 	(label "ISA_A2"
 		(at 382.27 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19134,7 +18868,6 @@
 	)
 	(label "ISA_OSC"
 		(at 240.03 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19145,7 +18878,6 @@
 	)
 	(label "ISA_A16"
 		(at 200.66 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19156,7 +18888,6 @@
 	)
 	(label "ISA_DRQ7"
 		(at 240.03 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19167,7 +18898,6 @@
 	)
 	(label "D1"
 		(at 177.8 196.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19178,7 +18908,6 @@
 	)
 	(label "ISA_RST"
 		(at 146.05 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19189,7 +18918,6 @@
 	)
 	(label "ISA_D13"
 		(at 294.64 148.59 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19200,7 +18928,6 @@
 	)
 	(label "ISA_A3"
 		(at 200.66 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19211,7 +18938,6 @@
 	)
 	(label "ISA_DRQ6"
 		(at 240.03 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19222,7 +18948,6 @@
 	)
 	(label "ISA_D7"
 		(at 200.66 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19233,7 +18958,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 327.66 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19244,7 +18968,6 @@
 	)
 	(label "ISA_A13"
 		(at 382.27 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19255,7 +18978,6 @@
 	)
 	(label "D4"
 		(at 177.8 151.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19266,7 +18988,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 294.64 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19277,7 +18998,6 @@
 	)
 	(label "ISA_A4"
 		(at 294.64 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19288,7 +19008,6 @@
 	)
 	(label "ISA_D7"
 		(at 116.84 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19299,7 +19018,6 @@
 	)
 	(label "ISA_ALE"
 		(at 240.03 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19310,7 +19028,6 @@
 	)
 	(label "ISA_TGR16"
 		(at 336.55 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19321,7 +19038,6 @@
 	)
 	(label "ISA_D7"
 		(at 382.27 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19332,7 +19048,6 @@
 	)
 	(label "ISA_IRQ7"
 		(at 240.03 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19343,7 +19058,6 @@
 	)
 	(label "ISA_~{CSL}"
 		(at 397.51 222.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19354,7 +19068,6 @@
 	)
 	(label "ISA_IRQ2"
 		(at 62.23 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19365,7 +19078,6 @@
 	)
 	(label "ISA_-5V"
 		(at 62.23 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19376,7 +19088,6 @@
 	)
 	(label "ISA_D0"
 		(at 382.27 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19387,7 +19098,6 @@
 	)
 	(label "ISA_A11"
 		(at 382.27 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19398,7 +19108,6 @@
 	)
 	(label "~{ISA_IO_CH_CK}"
 		(at 200.66 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19409,7 +19118,6 @@
 	)
 	(label "ISA_AEN"
 		(at 382.27 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19420,7 +19128,6 @@
 	)
 	(label "ISA_A11"
 		(at 116.84 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19431,7 +19138,6 @@
 	)
 	(label "ISA_~{MEMCS16}"
 		(at 240.03 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19442,7 +19148,6 @@
 	)
 	(label "ISA_D12"
 		(at 382.27 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19453,7 +19158,6 @@
 	)
 	(label "~{ISA_DACK0}"
 		(at 240.03 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19464,7 +19168,6 @@
 	)
 	(label "ISA_A18"
 		(at 382.27 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19475,7 +19178,6 @@
 	)
 	(label "ISA_A5"
 		(at 382.27 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19486,7 +19188,6 @@
 	)
 	(label "ISA_D6"
 		(at 382.27 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19497,7 +19198,6 @@
 	)
 	(label "ISA_IRQ4"
 		(at 240.03 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19508,7 +19208,6 @@
 	)
 	(label "ISA_D8"
 		(at 382.27 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19519,7 +19218,6 @@
 	)
 	(label "ISA_A17"
 		(at 382.27 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19530,7 +19228,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 146.05 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19541,7 +19238,6 @@
 	)
 	(label "ISA_A9"
 		(at 294.64 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19552,7 +19248,6 @@
 	)
 	(label "ISA_-5V"
 		(at 240.03 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19563,7 +19258,6 @@
 	)
 	(label "ISA_DRQ3"
 		(at 62.23 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19574,7 +19268,6 @@
 	)
 	(label "ISA_A16"
 		(at 116.84 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19585,7 +19278,6 @@
 	)
 	(label "ISA_D4"
 		(at 116.84 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19596,7 +19288,6 @@
 	)
 	(label "ISA_A15"
 		(at 294.64 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19607,7 +19298,6 @@
 	)
 	(label "ISA_IOCHRDY"
 		(at 200.66 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19618,7 +19308,6 @@
 	)
 	(label "ISA_D6"
 		(at 116.84 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19629,7 +19318,6 @@
 	)
 	(label "ISA_A7"
 		(at 294.64 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19640,7 +19328,6 @@
 	)
 	(label "ISA_A14"
 		(at 294.64 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19651,7 +19338,6 @@
 	)
 	(label "ISA_ALE"
 		(at 365.76 224.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19662,7 +19348,6 @@
 	)
 	(label "D7"
 		(at 177.8 158.75 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19673,7 +19358,6 @@
 	)
 	(label "ISA_A18"
 		(at 294.64 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19684,7 +19368,6 @@
 	)
 	(label "~{ISA_DACK0}"
 		(at 62.23 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19695,7 +19378,6 @@
 	)
 	(label "ISA_A6"
 		(at 116.84 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19706,7 +19388,6 @@
 	)
 	(label "ISA_IRQ[2..7]"
 		(at 27.94 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19717,7 +19398,6 @@
 	)
 	(label "ISA_IRQ11"
 		(at 240.03 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19728,7 +19408,6 @@
 	)
 	(label "ISA_A19"
 		(at 294.64 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19739,7 +19418,6 @@
 	)
 	(label "ISA_A12"
 		(at 200.66 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19750,7 +19428,6 @@
 	)
 	(label "ISA_ALE"
 		(at 146.05 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19761,7 +19438,6 @@
 	)
 	(label "ISA_A10"
 		(at 382.27 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19772,7 +19448,6 @@
 	)
 	(label "~{ISA_DACK2}"
 		(at 62.23 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19783,7 +19458,6 @@
 	)
 	(label "ISA_-12V"
 		(at 62.23 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19794,7 +19468,6 @@
 	)
 	(label "ISA_IRQ12"
 		(at 327.66 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19805,7 +19478,6 @@
 	)
 	(label "ISA_D0"
 		(at 200.66 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19816,7 +19488,6 @@
 	)
 	(label "ISA_~{CSH}"
 		(at 394.97 200.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19827,7 +19498,6 @@
 	)
 	(label "ISA_-12V"
 		(at 240.03 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19838,7 +19508,6 @@
 	)
 	(label "ISA_IRQ15"
 		(at 327.66 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19849,7 +19518,6 @@
 	)
 	(label "~{ISA_MEMW}"
 		(at 294.64 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19860,7 +19528,6 @@
 	)
 	(label "ISA_IOCHRDY"
 		(at 382.27 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19871,7 +19538,6 @@
 	)
 	(label "ISA_D1"
 		(at 214.63 196.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19882,7 +19548,6 @@
 	)
 	(label "ISA_D4"
 		(at 294.64 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19893,7 +19558,6 @@
 	)
 	(label "ISA_IRQ5"
 		(at 146.05 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19904,7 +19568,6 @@
 	)
 	(label "ISA_D10"
 		(at 214.63 146.05 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19915,7 +19578,6 @@
 	)
 	(label "ISA_A7"
 		(at 116.84 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19926,7 +19588,6 @@
 	)
 	(label "ISA_RST"
 		(at 327.66 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19937,7 +19598,6 @@
 	)
 	(label "ISA_A2"
 		(at 116.84 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19948,7 +19608,6 @@
 	)
 	(label "ISA_-5V"
 		(at 327.66 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19959,7 +19618,6 @@
 	)
 	(label "ISA_A0"
 		(at 294.64 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19970,7 +19628,6 @@
 	)
 	(label "ISA_D2"
 		(at 200.66 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19981,7 +19638,6 @@
 	)
 	(label "ISA_A13"
 		(at 116.84 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19992,7 +19648,6 @@
 	)
 	(label "ISA_~{SBHE}"
 		(at 382.27 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20003,7 +19658,6 @@
 	)
 	(label "ISA_A0"
 		(at 336.55 200.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20125,7 +19779,6 @@
 	(hierarchical_label "CPU_~{DACK}"
 		(shape input)
 		(at 34.925 202.565 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20137,7 +19790,6 @@
 	(hierarchical_label "A[0..20]"
 		(shape input)
 		(at 111.76 119.38 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20146,22 +19798,9 @@
 		)
 		(uuid "0441fbd2-2eae-4c8f-9c36-bf4fe08265eb")
 	)
-	(hierarchical_label "ISA_DACK"
-		(shape input)
-		(at 34.925 188.595 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1cc31074-1e74-41eb-bef6-bff106e726e4")
-	)
 	(hierarchical_label "DRQ3"
 		(shape output)
 		(at 53.34 67.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20173,7 +19812,6 @@
 	(hierarchical_label "D[0..7]"
 		(shape bidirectional)
 		(at 152.4 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20185,7 +19823,6 @@
 	(hierarchical_label "~{INT}"
 		(shape output)
 		(at 43.18 158.75 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20197,7 +19834,6 @@
 	(hierarchical_label "~{DACK1}"
 		(shape input)
 		(at 53.34 69.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20209,7 +19845,6 @@
 	(hierarchical_label "~{DACK3}"
 		(shape input)
 		(at 53.34 64.77 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20221,7 +19856,6 @@
 	(hierarchical_label "DMA_TC"
 		(shape input)
 		(at 53.34 95.25 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20233,7 +19867,6 @@
 	(hierarchical_label "~{DACK2}"
 		(shape input)
 		(at 53.34 92.71 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20245,7 +19878,6 @@
 	(hierarchical_label "~{WE}"
 		(shape input)
 		(at 34.925 197.485 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20257,7 +19889,6 @@
 	(hierarchical_label "DRQ1"
 		(shape output)
 		(at 53.34 72.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20269,7 +19900,6 @@
 	(hierarchical_label "~{WAIT}"
 		(shape output)
 		(at 397.51 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20281,7 +19911,6 @@
 	(hierarchical_label "CPU_DACK"
 		(shape input)
 		(at 209.55 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20293,7 +19922,6 @@
 	(hierarchical_label "IRQ[2..7]"
 		(shape output)
 		(at 27.94 102.87 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20305,7 +19933,6 @@
 	(hierarchical_label "DRQ2"
 		(shape output)
 		(at 53.34 41.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20317,7 +19944,6 @@
 	(hierarchical_label "~{ISA_SEL}"
 		(shape input)
 		(at 34.925 207.645 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20329,7 +19955,6 @@
 	(hierarchical_label "~{WAIT}"
 		(shape output)
 		(at 213.36 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20341,7 +19966,6 @@
 	(hierarchical_label "ISA_IO_CH_CK"
 		(shape output)
 		(at 43.18 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

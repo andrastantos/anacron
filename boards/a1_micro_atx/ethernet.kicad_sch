@@ -4052,7 +4052,6 @@
 	)
 	(label "D7"
 		(at 45.72 109.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4063,7 +4062,6 @@
 	)
 	(label "D1"
 		(at 45.72 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4074,7 +4072,6 @@
 	)
 	(label "ETH_TX-"
 		(at 133.35 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4085,7 +4082,6 @@
 	)
 	(label "ETH_RX+"
 		(at 133.35 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4096,7 +4092,6 @@
 	)
 	(label "CMD"
 		(at 62.23 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4107,7 +4102,6 @@
 	)
 	(label "ETH_RX-"
 		(at 133.35 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4118,7 +4112,6 @@
 	)
 	(label "D0"
 		(at 45.72 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4129,7 +4122,6 @@
 	)
 	(label "D2"
 		(at 45.72 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4140,7 +4132,6 @@
 	)
 	(label "D6"
 		(at 45.72 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4151,7 +4142,6 @@
 	)
 	(label "D3"
 		(at 45.72 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4162,7 +4152,6 @@
 	)
 	(label "D5"
 		(at 45.72 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4173,7 +4162,6 @@
 	)
 	(label "D4"
 		(at 45.72 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4184,7 +4172,6 @@
 	)
 	(label "ETH_TX+"
 		(at 133.35 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4218,7 +4205,6 @@
 	(hierarchical_label "~{WE}"
 		(shape input)
 		(at 33.02 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4230,7 +4216,6 @@
 	(hierarchical_label "CMD"
 		(shape input)
 		(at 33.02 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4242,7 +4227,6 @@
 	(hierarchical_label "D[0..7]"
 		(shape bidirectional)
 		(at 33.02 90.17 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4254,7 +4238,6 @@
 	(hierarchical_label "~{INT}"
 		(shape output)
 		(at 145.415 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4266,7 +4249,6 @@
 	(hierarchical_label "~{LAN_SEL}"
 		(shape input)
 		(at 33.02 78.74 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

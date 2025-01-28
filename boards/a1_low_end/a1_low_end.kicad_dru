@@ -1,0 +1,13 @@
+(version 1)
+(rule "HDMI neckdown"
+   (constraint track_width (min 0.2mm))
+   (constraint clearance (min 0.15mm))
+   (condition "A.insideArea('HDMI override')"))
+(rule "USB2 neckdown"
+   (constraint track_width (min 0.2mm))
+   (constraint clearance (min 0.15mm))
+   (condition "A.insideArea('USB2 override')"))
+(rule "ETH neckdown"
+   (constraint track_width (min 0.2mm))
+   (constraint clearance (min 0.15mm))
+   (condition "A.insideArea('ETH override')"))

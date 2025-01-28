@@ -59,7 +59,7 @@ Each RAS bank (0 through 7) can be up to 16MB large. This means 24 address bits.
 
  23  22  21  20  19  18  17  16  15  14  13  12  11  10   9   8   7   6   5   4   3   2   1   0
 +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
-|RAS ma[2:0]|         RAS md[15:8]          |          RAS md[7:0]          |CAS ma[2:0]|  CAS  |
+|RAS ma[2:0]|         RAS md[15:8]          |          CAS md[7:0]          |CAS ma[2:0]|  CAS  |
 +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
 <-------------- DRAM RAS bits --------------><-------------- DRAM CAS bits -------------><-byte->
 <--- gets latched inside DRAM during RAS ---><--- needs external register --><-- burst ->
@@ -397,3 +397,187 @@ At the same time, the whole memory needed for this is 16bytes x 64 generators, w
 
 
 Audio has its own issues though: it probably wants very fast access to a small amount of memory. This is because each generator has ~16-32Bytes of working set, but there are ideally hundreds of them, each executing at 48ksps. So we're looking at ~5M generator executions and if each needs to access it's working set of 32 bytes (one read, one write), that would result
+
+
+
+SD RAM support
+===============
+
+Just briefly, what would it look like to support some modern-ish memory standard, like SDRAM from a 40-pin package? Here we're going to concentrate on CL=2 configuration and using a Micron part datasheet (https://www.mouser.com/datasheet/2/671/64mb_x4x8x16_sdram-1282423.pdf). The reason for not supporting the CL=1 setting is that most SDRAMs don't support it. In fact, there's at least one (https://www.farnell.com/datasheets/1382718.pdf) that doesn't support CL=2 either.
+
+Some other datahseets: https://etron.com/specialty-dram-pl/sdram/
+
+These chips have 14 address lines (A10 being special and BA0/BA1 included). They also have 4 control signals (`n_cs`, `n_ras`, `n_cas`, `n_we`). Each byte has a `dqm` signal - which means that n_cas is not used as byte-selector in this configuration. For low-power modes, a `cke` pin is available, but it doesn't have to be driven, can be tied asserted.
+
+So, the idea would be that we still tie address and data together and multiplexed. Typical (trivial) read sequence:
+
+ACTIVE (RAS)
+NOP
+NOP
+READ (CAS)
+NOP  (DATA)
+NOP  (DATA)
+NOP  (DATA)
+NOP  (DATA)
+NOP  (auto pre-charge)
+
+Typical (trivial) write sequence:
+
+ACTIVE (RAS)
+WRITE (CAS + DATA!!!)
+NOP (DATA)
+NOP (DATA)
+
+===========  =========  =====  ======  =======  =============  ===========  =========  ============
+Pin Name      ACTIVE     NOP    READ    WRITE    BURST TERM.    PRECHARGE    REFRESH    MODE WRITE
+===========  =========  =====  ======  =======  =============  ===========  =========  ============
+n_cs             0        0      0        0          0              0           0           0
+n_ras            0        1      1        1          1              0           0           0
+n_cas            1        1      0        0          1              1           0           0
+n_we             1        1      1        0          0              0           1           0
+n_ale            0        ?      0        1
+dqm_h            ?        X      ?        ?                         ?           X           X
+dqm_l            ?        X      ?        ?                         ?           X           X
+ba1              ?        X      ?        ?                         ?           X           X
+ba0              ?        X      ?        ?                         ?           X           X
+===========  =========  =====  ======  =======  =============  ===========  =========  ============
+
+DQM has to be de-asserted at least two cycles before a write command as the latency on those signals is *fixed* two cycles. Though I think that's bogus, and it should match the CL setting. At any rate, the DQM during reads control if the outputs are tri-stated and whether writes are performed during writes. DQM during writes controls the data in the same cycle.
+
+Burst termination seems to always have a latency of 1, that is to say, that after burst termination, one additional data transfer happens after the issuance of the burst termination command. For writes, the burst termination terminates immediately, that is to say, the terminate command itself doesn't carry data.
+
+We have some problems with writes: data and column address flows in the same cycle on the bus, normally. To avoid that, we need an extra NOP between ACTIVE and WRITE, during which we latch the CAS address from the multiplexed data-bus. NOTE: for reads, we don't have this problem due to latency.
+
+So, to do a 8-beat burst read (which would be 16 bytes), we would need:
+
+ACTIVATE
+READ
+NOP
+NOP (DATA)
+NOP (DATA)
+NOP (DATA)
+NOP (DATA)
+NOP (DATA)
+NOP (DATA)
+PRECHARGE (DATA) <-- we can't control A10, but since we never open more than one bank, that's OK
+NOP (DATA)
+
+A similar write would look like this:
+
+ACTIVATE
+NOP*  (CAS address)
+WRITE (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+NOP   (DATA)
+PRECHARGE
+
+A read thus would take 3 extra cycles, a write would take 2. Of course, theoretically we could run this interface at least at 100MHz, if not more, but the DIP package will severely limit us, say to 50MHz. So, that would mean 11 cycles for 16 bytes, or 72MBytes/s.
+
+NOTE: maybe we could do 16-beat bursts, but that would require a linear burst setting and a burst-terminate command, which would add extra complexity and overhead. In that case we could reach 80MByte/s transfer rates.
+
+The pinout for something like this would look like:
+
+========== =========== =============== ===========
+Pin Number Pin Name    Pin Direction   Description
+========== =========== =============== ===========
+1          md0         I/O             Data bus
+2          md1         I/O             Data bus
+3          md2         I/O             Data bus
+4          md3         I/O             Data bus
+5          md4         I/O             Data bus
+6          md5         I/O             Data bus
+7          md6         I/O             Data bus
+8          md7         I/O             Data bus
+9          md8         I/O             Data bus
+10         md9         I/O             Data bus
+11         md10        I/O             Data bus
+12         md11        I/O             Data bus
+13         md12        I/O             Data bus
+14         md13        I/O             Data bus
+15         md14        I/O             Data bus
+16         md15        I/O             Data bus
+17         n_cas       Output          SDRAM control signal
+18         n_ras       Output          SDRAM control signal
+19         n_we        Output          SDRAM control signal
+20         GND         GND             Ground input
+21         dqm_l       Output          Active low column select, byte 1
+22         dqm_h       Output          Active low column select, byte 2
+23         n_ale       Output          Active low address latch enable
+24         bank_sel0   Output          multiplexed DRAM bank select
+25         bank_sel1   Output          multiplexed DRAM bank select
+26         bank_sel2   Output          multiplexed DRAM bank select
+27         bank_sel3   Output          multiplexed DRAM bank select
+28
+29
+30         n_rst       Input           Active low reset input
+31         n_int       Input           Active low interrupt input
+32         n_wait      Input           Active low wait-state input
+33         n_dma_req   Input           Active low DMA-request input (wired AND logic on the system level with external pull-up)
+34         n_bus_req   Input           Active low bus-request input
+35
+36
+37
+38
+39         sys_clk     Input           Clock input
+40         VCC         5V power        Power input
+========== =========== =============== ===========
+
+This is actually rather compact, notice how we don't need any extra address pins anymore as burst is done internally in the SDRAM chips and this we don't have to provide dedicated pins to do that.
+We also use two clock cycles for RAS/CAS addresses and don't need to do it in a single clock.
+
+Still, this is not an enormous clock speed gain over FPM memory, because we can't raise the clock rate to the peak. If we could do that (166MHz, CL=3), we would be able to achieve a massive 221MByte/s transfer rate.
+
+A video controller would look like this:
+
+========== =========== =============== ===========
+Pin Number Pin Name    Pin Direction   Description
+========== =========== =============== ===========
+1          md0         I/O             Data bus
+2          md1         I/O             Data bus
+3          md2         I/O             Data bus
+4          md3         I/O             Data bus
+5          md4         I/O             Data bus
+6          md5         I/O             Data bus
+7          md6         I/O             Data bus
+8          md7         I/O             Data bus
+9          md8         I/O             Data bus
+10         md9         I/O             Data bus
+11         md10        I/O             Data bus
+12         md11        I/O             Data bus
+13         md12        I/O             Data bus
+14         md13        I/O             Data bus
+15         md14        I/O             Data bus
+16         md15        I/O             Data bus
+17         n_cas       Output          SDRAM control signal
+18         n_ras       Output          SDRAM control signal
+19         n_we        Output          SDRAM control signal
+20         GND         GND             Ground input
+21         dqm_l       Output          Active low column select, byte 1
+22         dqm_h       Output          Active low column select, byte 2
+23         n_ale       Output          Active low address latch enable
+24         bank_sel0   Output          DRAM bank select
+25         n_rst       Input           Active low reset input
+26         n_int       Output          Active low interrupt output
+27         n_wait      Output          Active low wait-state request output
+28         ???         Output          Reserved for bus-sharing hand-shake, if needed
+29         n_reg_sel   Input           register access select
+30         video_clk   Input           Clock input
+31         sys_clk     Input           Clock input
+32         TMDS D 2+   Output          HDMI/DVI signal
+33         TMDS D 2-   Output          HDMI/DVI signal
+34         TMDS D 1+   Output          HDMI/DVI signal
+35         TMDS D 1-   Output          HDMI/DVI signal
+36         TMDS D 0+   Output          HDMI/DVI signal
+37         TMDS D 0-   Output          HDMI/DVI signal
+38         TMDS C +    Output          HDMI/DVI signal
+39         TMDS C -    Output          HDMI/DVI signal
+40         VCC         5V power        Power input
+========== =========== =============== ===========
+
+Still no room for I2S, unfortunately. If we disregard writes, we can free up the dqm signals and n_ale (still need n_we, I think) so we would have I2S, but now we can't write ADC data into memory. Not ideal...
